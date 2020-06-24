@@ -4,9 +4,9 @@
 
     $datum = getdate(time());
     $year=$datum['year'];
-    $month=$datum[mon];
-    $day=$datum[mday];
-    $wday=$datum[wday];
+    $month=$datum['mon'];
+    $day=$datum['mday'];
+    $wday=$datum['wday'];
     if ($wday=='0') $wochentag="Sonntag";
     if ($wday=='1') $wochentag="Montag";
     if ($wday=='2') $wochentag="Dienstag";
@@ -56,13 +56,13 @@
 </tr>
 <?php
 $query="SELECT * from birthday where date='$bday_datum'";
-$result=mysql_query($query,$db_link);
-while($r=mysql_fetch_array($result))
+$result=mysqli_query($db_link,$query);
+while($r=mysqli_fetch_array($result))
   {
-   $age=$year-$r[byear];
-   if ($r[byear]=='') $age='??';
-   echo "<tr><td>$r[name]($age)</td></tr>
-   <tr><td><small>$r[whoisit]</td></tr>";
+   $age=$year-$r["byear"];
+   if ($r["byear"]=='') $age='??';
+   echo "<tr><td>",$r["name"],"(",$age,")</td></tr>
+   <tr><td><small>",$r["whoisit"],"</td></tr>";
   }
 ?>
 </table><br>
@@ -93,18 +93,18 @@ if ($acount > 1) echo "<small><b>$acount Adressänderungen in kvwmap</small><br>
 if ($bild_id < 1) $bild_id=mt_rand(1811,1815);
 
 $query="SELECT id FROM pictures ORDER BY ID LIMIT 1";
-$result=mysql_query($query,$db_link);
-$r=mysql_fetch_array($result);
-$first_pic=$r[id];
+$result=mysqli_query($db_link,$query);
+$r=mysqli_fetch_array($result);
+$first_pic=$r["id"];
 
 $query="SELECT id FROM pictures ORDER BY ID DESC LIMIT 1";
-$result=mysql_query($query,$db_link);
-$r=mysql_fetch_array($result);
-$last_pic=$r[id];
+$result=mysqli_query($db_link,$query);
+$r=mysqli_fetch_array($result);
+$last_pic=$r["id"];
 
 $query="SELECT * from pictures where id='$bild_id'";
-$result=mysql_query($query,$db_link);
-$r=mysql_fetch_array($result);
+$result=mysqli_query($db_link,$query);
+$r=mysqli_fetch_array($result);
   
 ?> 
 
@@ -116,11 +116,11 @@ $r=mysql_fetch_array($result);
 $vorgaenger=$bild_id-1;
 $nachfolger=$bild_id+1;
 if ($bild_id > $first_pic) echo "<a href=\"home.php?bild_id=$vorgaenger\"><img src=\"images/buttons/nach_links.png\" width=20 border=0></a>";
-echo " $r[head] ";
+echo " ",$r["head"]," ";
 if ($bild_id < $last_pic) echo "<a href=\"home.php?bild_id=$nachfolger\"><img src=\"images/buttons/nach_rechts.png\" width=20 border=0></a>"; ?>
 <br>
 <font size="-1">
-<?php echo $r[comment]; ?>
+<?php echo $r["comment"]; ?>
 
 
 
@@ -129,10 +129,10 @@ if ($bild_id < $last_pic) echo "<a href=\"home.php?bild_id=$nachfolger\"><img sr
 <td><img <?php echo "src=\"images/$bild_id.jpg\""; ?> width="700"  border="1"></td>
 </tr>
 <tr>
-<td><font size="-1"><?php echo $r[titel]; ?></td>
+<td><font size="-1"><?php echo $r["titel"]; ?></td>
 </tr>
 <tr>
-<td><font size="-1">Foto: <?php echo $r[photographer]; ?></td>
+<td><font size="-1">Foto: <?php echo $r["photographer"]; ?></td>
 </tr>
 
 </table>

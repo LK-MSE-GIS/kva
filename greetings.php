@@ -2,9 +2,9 @@
 include ("connect.php");
 
 $query="SELECT * FROM mitarbeiter WHERE logname LIKE '$logname'";
-$result=mysql_query($query,$db_link);
-$r=mysql_fetch_array($result);
+$result=mysqli_query($db_link,$query);
+$r=mysqli_fetch_array($result);
 echo "<hr> <div style=\"font-family:Arial; font-size: 8pt; font-style: italic\">
-     Sie sind angemeldet als<br>$r[name]<hr></div>";
+     Sie sind angemeldet als<br>",$r["name"],"<hr></div>";
 
 ?>
