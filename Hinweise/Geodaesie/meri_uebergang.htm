@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../STYLE_RP.CSS">
+<title>Meridianstreifenübergang</title>
+</head>
+
+<body>
+
+<h2><font color="#993333">Meridianstreifenübergang</font></h2>
+
+<p><br>
+Für die Bearbeitung von Projekten im Bereich eines Meridianstreifenwechsels
+setzen die Verarbeitungsteile für Punkt- und Grundrissdaten voraus, dass
+sämtliche Koordinaten in einem gemeinsamen Streifensystem vorliegen. Für einen
+Teil der Daten bedeutet dies zwangsläufig die Transformation in den
+benachbarten Meridianstreifen.</p>
+<p><br>
+Auch wenn die Berechnung einer Meridianstreifentransformation über identische
+Punkte unter bestimmten Voraussetzungen (kl. Gebiet)&nbsp; zu brauchbaren
+Ergebnissen führt, sollte stets mit den Algorithmen des LVermA/der
+Verarbeitungsteile gerechnet werden. </p>
+<p>Diese Algorithmen arbeiten nach folgendem Schema:</p>
+<ul>
+  <li>Umrechnung der Koordinaten in geographische Länge und Breite (sowie ggf.
+    ellipsoidische Höhe)<br>
+    dabei ist die Sekunde auf mindestens 6 Nachkommastellen anzugeben, um
+    spätere Rundungsungenauigkeiten zu minimieren</li>
+  <li>die geographischen Positionsangaben werden in &quot;rad&quot; umgerechnet
+    und sind somit Grundlage einer Reihenentwicklung (die
+    Transformationsgenauigkeit hängt im Wesentlichen davon ab, wie genau das
+    jeweilige Rechensystem die Nachkommastellen einer Größe
+    verwalten/verarbeiten kann --&gt; 16Bit; 32 Bit; 64Bit)</li>
+  <li>mit der Reihenentwicklung, die je nach Programm in mehreren
+    Iterationsschritten berechnet wird, erhält man die jeweilige geographische
+    Zielposition</li>
+  <li>die geographischen Koordinaten werden abschließend wieder
+    &quot;verebnet&quot; - der Punkt erhält Koordinaten im gewünschten
+    Streifen</li>
+</ul>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<p>
+&nbsp;
+</p>
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b>
+      <a href="../Titelseite_GEOD.htm">
+      <img border="0" src="../IMAGES/clipart/exit.gif" width="34" height="33" align="left"></a></b></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+ALTER TABLE `antrag` ADD `number` INT( 4 ) NOT NULL AFTER `id` ,
+ADD `year` INT( 4 ) NOT NULL AFTER `number` ;
+
+ALTER TABLE `antrag` CHANGE `az` `az` VARCHAR( 25 ) CHARACTER SET latin1 COLLATE latin1_german1_ci NULL DEFAULT NULL
+
+#Script http://localhost/kva/migrate_number.php ausführen
+
+CREATE TABLE `antrag_extra` (
+  `id` int(6) unsigned NOT NULL,
+  `vorb_unterl` blob,
+  `vorb_re_datum` date NOT NULL default '0000-00-00',
+  `vorb_kassz` varchar(20) collate latin1_german1_ci default NULL,
+  `vorb_betrag` decimal(8,2) default NULL,
+  `vorb_mit_id` int(3) default NULL,
+  `vorb_ja_nein` tinyint(1) NOT NULL default '0',
+  `me_comment` blob,
+  `me_fehlend` blob,
+  `me_mit_id` int(3) default NULL,
+  `me_ja_nein` tinyint(4) NOT NULL default '0',
+  `alk_mit_id` int(3) default NULL,
+  `alk_ja_nein` tinyint(1) NOT NULL default '0',
+  `alb_mit_id` int(3) NOT NULL default '0',
+  `alb_ja_nein` tinyint(1) NOT NULL default '0',
+  `ueb_mit_id` int(3) default NULL,
+  `ueb_ja_nein` tinyint(1) NOT NULL default '0',
+  `re_rech1` date NOT NULL default '0000-00-00',
+  `re_betrag1` decimal(8,2) default NULL,
+  `re_kz1` varchar(15) collate latin1_german1_ci default NULL,
+  `re_empf1` blob,
+  `re_unterl1` blob,
+  `re_rech2` date NOT NULL default '0000-00-00',
+  `re_betrag2` decimal(8,2) default NULL,
+  `re_kz2` varchar(15) collate latin1_german1_ci default NULL,
+  `re_empf2` blob,
+  `re_unterl2` blob,
+  `re_rech3` date NOT NULL default '0000-00-00',
+  `re_betrag3` decimal(8,2) default NULL,
+  `re_kz3` varchar(15) collate latin1_german1_ci default NULL,
+  `re_empf3` blob,
+  `re_unterl3` blob,
+  `re_rech4` date NOT NULL default '0000-00-00',
+  `re_betrag4` decimal(8,2) default NULL,
+  `re_kz4` varchar(15) collate latin1_german1_ci default NULL,
+  `re_empf4` blob,
+  `re_unterl4` blob,
+  `re_rech5` date NOT NULL default '0000-00-00',
+  `re_betrag5` decimal(8,2) default NULL,
+  `re_kz5` varchar(15) collate latin1_german1_ci default NULL,
+  `re_empf5` blob,
+  `re_unterl5` blob,
+  `re_mit_id` int(3) default NULL,
+  `re_ja_nein` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci AUTO_INCREMENT=8567 ;
+
+
+INSERT IGNORE INTO antrag_extra SELECT id,
+  vorb_unterl,
+  vorb_re_datum,
+  vorb_kassz,
+  vorb_betrag,
+  vorb_mit_id,
+  vorb_ja_nein,
+  me_comment,
+  me_fehlend,
+  me_mit_id,
+  me_ja_nein,
+  alk_mit_id,
+  alk_ja_nein,
+  alb_mit_id,
+  alb_ja_nein,
+  ueb_mit_id,
+  ueb_ja_nein,
+  re_rech1,
+  re_betrag1,
+  re_kz1,
+  re_empf1,
+  re_unterl1,
+  re_rech2,
+  re_betrag2,
+  re_kz2,
+  re_empf2,
+  re_unterl2,
+  re_rech3,
+  re_betrag3,
+  re_kz3,
+  re_empf3,
+  re_unterl3,
+  re_rech4,
+  re_betrag4,
+  re_kz4,
+  re_empf4,
+  re_unterl4,
+  re_rech5,
+  re_betrag5,
+  re_kz5,
+  re_empf5,
+  re_unterl5,
+  re_mit_id,
+  re_ja_nein FROM antrag;
+
+ALTER TABLE `antrag`
+  DROP `vorb_rech_num`,
+  DROP `vorb_unterl`,
+  DROP `vorb_re_datum`,
+  DROP `vorb_kassz`,
+  DROP `vorb_betrag`,
+  DROP `vorb_mit_id`,
+  DROP `vorb_ja_nein`,
+  DROP `me_comment`,
+  DROP `me_fehlend`,
+  DROP `me_mit_id`,
+  DROP `me_ja_nein`,
+  DROP `alk_mit_id`,
+  DROP `alk_ja_nein`,
+  DROP `alb_mit_id`,
+  DROP `alb_ja_nein`,
+  DROP `ueb_mit_id`,
+  DROP `ueb_ja_nein`,
+  DROP `re_rech1`,
+  DROP `re_betrag1`,
+  DROP `re_kz1`,
+  DROP `re_empf1`,
+  DROP `re_unterl1`,
+  DROP `re_rech2`,
+  DROP `re_betrag2`,
+  DROP `re_kz2`,
+  DROP `re_empf2`,
+  DROP `re_unterl2`,
+  DROP `re_rech3`,
+  DROP `re_betrag3`,
+  DROP `re_kz3`,
+  DROP `re_empf3`,
+  DROP `re_unterl3`,
+  DROP `re_rech4`,
+  DROP `re_betrag4`,
+  DROP `re_kz4`,
+  DROP `re_empf4`,
+  DROP `re_unterl4`,
+  DROP `re_rech5`,
+  DROP `re_betrag5`,
+  DROP `re_kz5`,
+  DROP `re_empf5`,
+  DROP `re_unterl5`,
+  DROP `re_mit_id`,
+  DROP `re_ja_nein`;
+
+#Ändern der Struktur der Tabelle Antrag:
+
+ALTER TABLE `antrag` CHANGE `gemark_id` `gemark_id_1` INT( 6 ) UNSIGNED NOT NULL DEFAULT '0';
+ALTER TABLE `antrag` CHANGE `flur` `flur_1` VARCHAR( 10 ) CHARACTER SET latin1 COLLATE latin1_german1_ci NOT NULL; 
+ALTER TABLE `antrag` CHANGE `flst` `flst_1alt` BLOB NOT NULL; 
+ALTER TABLE `antrag` ADD `flst_1` BLOB NOT NULL AFTER `flst_1alt` ;
+
+ALTER TABLE `antrag` ADD `gemark_id_2` INT( 6 ) NOT NULL AFTER `flst_1` ,
+ADD `flur_2` VARCHAR( 10 ) NOT NULL AFTER `gemark_id_2` ,
+ADD `flst_2` BLOB NOT NULL AFTER `flur_2` ,
+ADD `gemark_id_3` INT( 6 ) NOT NULL AFTER `flst_2` ,
+ADD `flur_3` VARCHAR( 10 ) NOT NULL AFTER `gemark_id_3` ,
+ADD `flst_3` BLOB NOT NULL AFTER `flur_3` ;
+
+ALTER TABLE `antrag` ADD `flst_2alt` BLOB NOT NULL AFTER `flst_2` ;
+ALTER TABLE `antrag` ADD `flst_3alt` BLOB NOT NULL AFTER `flst_3` ;
+ALTER TABLE `antrag` CHANGE `riss` `riss_1` INT( 5 ) NOT NULL DEFAULT '0';
+ALTER TABLE `antrag` ADD `riss_2` INT( 5 ) NOT NULL AFTER `riss_1` ,
+ADD `riss_3` INT( 5 ) NOT NULL AFTER `riss_2` ;
+
+# Ändern der Tabelle ant_search
+
+ALTER TABLE `ant_search` CHANGE `query` `query` VARCHAR( 1000 ) CHARACTER SET latin1 COLLATE latin1_german1_ci NOT NULL ;
+
+# Tabelle order_key erweitern um einen Datensatz. Darin muss die höchste Auftragsnummer im laufenden Jahr eingetragen werden.
+
+Tablle order_key erweitern um die id 3 für die Liste A und um die id 4 für die Liste B
+
+ALTER TABLE `li_a` RENAME `li_a_alt` ;
+
+CREATE TABLE `li_a` (
+  `id` int(6) NOT NULL auto_increment,
+  `year` varchar(4) collate latin1_german1_ci NOT NULL default '0000',
+  `number` int(4) NOT NULL,
+  `antrag` varchar(10) collate latin1_german1_ci NOT NULL,
+  `flst1` varchar(18) collate latin1_german1_ci NOT NULL,
+  `flst2` varchar(18) collate latin1_german1_ci default NULL,
+  `flst3` varchar(18) collate latin1_german1_ci default NULL,
+  `flst4` varchar(18) collate latin1_german1_ci default NULL,
+  `vermart_id` int(3) NOT NULL default '0',
+  `vorb_date` date NOT NULL default '0000-00-00',
+  `vorb_mit_id` int(3) NOT NULL default '0',
+  `take_date` date NOT NULL default '0000-00-00',
+  `take_mit_id` int(3) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci AUTO_INCREMENT=1 ;
+
+http://localhost/kva/migrate_li_a.php ausführen
+
+
+ALTER TABLE `li_b` RENAME `li_b_alt` ;
+
+CREATE TABLE `li_b` (
+  `id` int(6) NOT NULL auto_increment,
+  `year` varchar(4) collate latin1_german1_ci NOT NULL,
+  `number` int(4) NOT NULL,
+  `fma` varchar(10) collate latin1_german1_ci default NULL,
+  `flst` varchar(30) collate latin1_german1_ci NOT NULL,
+  `fa_bem` varchar(30) collate latin1_german1_ci default NULL,
+  `date` date NOT NULL default '0000-00-00',
+  `mit_id` int(3) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci AUTO_INCREMENT=1 ;
+
+
+http://localhost/kva/migrate_li_b.php ausführen
+
+ALTER TABLE `li_c` RENAME `li_c_alt` ;
+
+CREATE TABLE `li_c` (
+  `id` int(6) NOT NULL auto_increment,
+  `year` varchar(4) collate latin1_german1_ci NOT NULL,
+  `number` int(4) NOT NULL,
+  `bem` varchar(10) collate latin1_german1_ci default NULL,
+  `grubu` varchar(35) collate latin1_german1_ci NOT NULL,
+  `fa_bem` varchar(10) collate latin1_german1_ci default NULL,
+  `date` date NOT NULL default '0000-00-00',
+  `mit_id` int(3) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci AUTO_INCREMENT=1 ;
+
+http://localhost/kva/migrate_li_c.php ausführen

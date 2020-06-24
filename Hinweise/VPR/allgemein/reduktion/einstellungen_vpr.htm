@@ -1,0 +1,274 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../../../STYLE_RP.CSS">
+<title>Einstellungen in VPR zur Reduktion...</title>
+</head>
+
+<body>
+
+<h2><font color="#993333"><a name="oben">Ein</a>stellungen in VPR mit Einfluss
+auf die Reduktion</font></h2>
+<p><br>
+Die Qualität der Berechnungen in VPR hängt, je nachdem welche VPR-Funktion
+ausgeführt wird, mehr oder weniger stark vom Anbringen verschiedener
+Reduktionen ab. Zur Durchführung dieser Reduktionen müssen
+Reduktionskonstanten und Netzkonstanten herangezogen werden.</p>
+<p><br>
+<b>Die Reduktionskonstanten...</b></p>
+<p>können vom Administrator in der <i><b>KOOPARAMETER.INI</b></i> definiert
+werden. </p>
+<p>Sie sollten (zur Wahrung gleicher Voraussetzungen) für alle Punkte, die sich
+im selben Meridianstreifen befinden, identisch und daher mit den benachbarten LK
+abgestimmt sein. Zu den Reduktionskonstanten gehören:</p>
+<ul>
+  <li>Erdradius </li>
+  <li>Rechtswert des Koordinatenursprungs</li>
+  <li>Kleinster zulässiger Rechtswert </li>
+  <li>Größter zulässiger Rechtswert </li>
+  <li>Faktor für Korrektur der Zenitdistanz wegen Neigung</li>
+</ul>
+<p><b>Welche Netzkonstanten...</b></p>
+<p>VPR für die jeweiligen Funktionen benutzt, kann nicht allgemein gesagt
+werden. Dies hängt im wesentlichen von Einstellungen in den
+Initialisierungsdateien ab, die der Administrator entsprechend der jeweiligen
+Ansprüche und Möglichkeiten selber beeinflussen kann. Zu den Netzkonstanten
+gehören:</p>
+<ul>
+  <li>Netzmaßstab NMS (Maßstabsreduktion)</li>
+  <li>Mittlere Gebietshöhe HOM (NN-Reduktion)</li>
+  <li>Mittlerer Rechtswert ohne Meridiankennziffer RMI (G-K-Reduktion wegen
+    Projektionsverzerrung) </li>
+</ul>
+<p>Auf welche Art und Weise diese Netzkonstanten von VPR genutzt oder
+gegebenenfalls automatisch ermittelt werden, wird bereits beim Anlegen der
+Koordinatendatei festgelegt. Welche Möglichkeiten es für den Nutzer gibt, auf
+die Auswahl bzw. Definition der Netzkonstanten Einfluss zu nehmen, sollen die
+folgenden Hinweise erläutern:</p>
+<p><br>
+</p>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3>Welche Möglichkeiten zur Festlegung der Netzkonstanten gibt es für den
+Nutzer und worin unterscheiden sich diese?
+</h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></p>
+    </td>
+  </tr>
+</table>
+
+<p>Grundlegend gibt es zwei Möglichkeiten, Einfluss auf die Netzkonstanten und
+somit auf die Reduktion zu nehmen:</p>
+<p><b><u>1. Möglichkeit:</u></b></p>
+<p>Die Reduktionen werden je nach lokaler Lage des Messgebietes, also
+entsprechend der geographischen Situation, individuell ermittelt und an die
+Messungselemente angebracht. Die Netzkonstanten Mittlere Höhe und Mittlerer RW
+werden <a href="NBZH_datei.htm#oben">für jede der VPR-Funktionen individuell
+ermittelt</a> (siehe <a href="#Zusatz 2:">Zusatz 2</a>). </p>
+<p>= empfohlene Lösung</p>
+<p><b><u>2. Möglichkeit:</u></b></p>
+<p>Die Reduktionen erfolgen bis auf wenige Ausnahmen (Flächenberechnung,
+Polygonzug) unabhängig von der geographischen Situation einheitlich mit vom
+Nutzer festgelegten Konstanten. Die Netzkonstanten werden nicht für jede der
+VPR-Funktionen individuell ermittelt, sondern an alle Funktionen (außer
+Flächenberechnung, Polygonzug) in gleicher Weise angebracht.</p>
+<p>= Kompromisslösung (da nicht das bestmögliche Ergebnis in jeder Situation
+erreicht wird. Wie groß die Abweichungen zum jeweilig bestmöglichen Ergebnis
+sind, ist von der geographischen Lage und der gewählten VPR-Funktion abhängig.)</p>
+<p><br>
+VPR bietet die Möglichkeit, durch die &quot;<a href="NBZH_datei.htm">Datei der
+Nummerierungsbezirkshöhen</a>&quot; (folgend NBZ-H-Datei genannt) beim
+Ermitteln und Anbringen der Reduktionen individuelle geographische Gegebenheiten
+eines Messungsgebietes (also Gebietshöhe und Mittleren RW) zu berücksichtigen.
+Das Vorhandensein und die Vollständigkeit dieser Datei sind wesentliche
+Ursachen für den Unterschied zwischen den oben geschilderten Möglichkeiten 1
+und 2.</p>
+<p><br>
+</p>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3>Wie werden diese Möglichkeiten realisiert?</h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></p>
+    </td>
+  </tr>
+</table>
+
+<p><b><u>1. Möglichkeit:</u></b></p>
+<p><b>Die NBZ-H-Datei ist vorhanden bzw. sie soll erstellt werden...</b></p>
+<ul>
+  <li>Die NBZ-H-Datei für das aktuelle Projekt wird <i>automatisch</i> (siehe <a href="#Zusatz 1:">Zusatz
+    1</a>) beim Anlegen einer Koordinatendatei aus der &quot;<a href="NBZH_datei.htm#Sequentielle Datei der Nummerierungsbezirkshöhen">Sequentiellen
+    Datei der Nummerierungsbezirkshöhen</a>&quot; erzeugt</li>
+  <li>Voraussetzung ist also die &quot;<a href="NBZH_datei.htm#Sequentielle Datei der Nummerierungsbezirkshöhen">Sequentielle
+    Datei der Nummerierungsbezirkshöhen</a>&quot;, die im erforderlichen Format
+    einmal für den gesamten Landkreis bzw. den gesamten Wirkungsbereich einer
+    Katasterbehörde KVA aufgestellt werden sollte.</li>
+  <li>Anzustreben ist eine vollständige Erfassung aller NBZ und deren Höhen in
+    dieser Datei! Ein NBZ ohne Höhe (falls diese nicht bekannt ist) darf in der
+    Datei nicht existieren. In solchen Fällen wird für den entsprechenden NBZ
+    automatisch der mittlere Höhenwert aus der <b><i>KOOPARAMETER.INI</i></b>
+    verwendet. Deshalb sollte dort eine möglichst repräsentative Höhe
+    eingetragen sein! </li>
+  <li>Die NBZ-H-Datei beinhaltet in verschlüsselter Form die individuellen
+    Definitionen von Mittlerer Höhe und Mittlerem RW für alle 2) in der Anlage
+    3 aufgeführten VPR-Funktionen. Die Voraussetzungen für optimale
+    Reduktionen sind hiermit geschaffen.</li>
+</ul>
+<p><b><u>2. Möglichkeit:</u></b></p>
+<p><b>Die NBZ-H-Datei ist nicht vorhanden bzw. sie soll nicht erstellt werden...</b></p>
+<ul>
+  <li>Die NBZ-H-Datei wird nicht berücksichtigt bzw. nicht erstellt, wenn im
+    Abschnitt &quot;Dateiorganisation&quot; der <b><i>KOOINI.INI</i></b> der
+    Parameter NBH auf &quot;0&quot; gesetzt, bzw. nicht definiert wird</li>
+  <li>An die Ein- und Ausgabestrecken <i>aller</i> (siehe <a href="#Zusatz 2:">Zusatz
+    2</a>) in der <a href="NBZH_datei.htm">Beschreibung zur NBZ-H-Datei
+    aufgeführten Funktionen</a> werden Reduktionen angebracht. Diese
+    Reduktionen erfolgen jedoch nicht nach den dort individuell definierten MRW
+    und RDH, sondern für jede Funktion mit den in der <b><i>KOOPARAMETER.INI</i></b>
+    festgelegten Netzkonstanten (siehe oben: RMI und HOM)! <br>
+    Ausnahmen bilden die Funktionen &quot;Flächenberechnung&quot; und
+    &quot;Polygonzug&quot; (siehe mit <font color="#FF0000"><b>(*)</b></font>
+    gekennzeichnete Funktionen in der <a href="NBZH_datei.htm">Beschreibung zur
+    Datei der Nummerierungsbezirkshöhen</a>), da hier der Einfluss der
+    Netzparameter auf das Ergebnis am größten ist. <br>
+    --&gt; Bei einer <i>Polygonzugberechnung</i> können die Netzparameter je
+    nach Situation individuell verschieden vom Nutzer eingegeben werden. <br>
+    --&gt; Bei der <i>Flächenberechnung</i> kann der RW des ersten
+    Flächeneckpunktes als Mittlerer Rechtswert angenommen. Voraussetzung
+    hierfür ist jedoch, dass RMI in der <b><i>KOOPARAMETER.INI</i></b> nicht
+    definiert ist, bzw. den Wert <b><i>0</i></b> aufweist. Aber gerade diese
+    Bedingung würde sich bei allen übrigen Funktionen ggf. negativ auf die
+    Reduktion auswirken (keine <a href="../../../Geodaesie/reduktion/Reduktion.htm#3. Schritt:">G-K-Reduktion</a>).
+    An dieser Stelle ergeben sich also 2 Möglichkeiten (a und b), nach denen
+    der Nutzer verfahren kann:</li>
+</ul>
+<p><b><a name="a)">a)</a> </b></p>
+<div align="left">
+  <table border="1" cellpadding="0" cellspacing="0" width="85%">
+    <tr>
+      <td width="100%"><b><i>KOOPARAMETER.INI:</i></b> RMI = 0 setzen bzw. nicht
+        definieren.<br>
+        Bei der Flächenberechnung wird der mittlere RW des ersten
+        Flächeneckpunktes zur Reduktion angenommen. Die Differenz zum optimalen
+        mittleren RW für das Messgebiet ist dann für Fläche von 10000m<sup>2</sup>
+        am Meridianstreifenrand immer noch kleiner als 0,1m<sup>2</sup>
+        (VORTEIL) --&gt; <font color="#FF0000"><a href="netzparameter_flaeche.pdf">Beispiel</a></font><br>
+        Bei der Flächenberechnung ist es also sinnvoll, als ersten
+        einzugebenden Flächeneckpunkt einen möglichst mittig im Messgebiet
+        befindlichen Punkt zu wählen. --&gt; Die Polygonzugberechnung erfolgt
+        mit individuell eingegebenen Netzkonstanten. Für alle anderen
+        Funktionen (siehe <a href="#Zusatz 2:">Zusatz 2</a>) bedeutet RMI=0,
+        dass keine G-K-Reduktion angebracht wird. Dies wirkt sich in
+        Abhängigkeit von der geographischen Lage im Meridianstreifen ggf.
+        verfälschend auf das jeweilige Ergebnis aus (evtl. NACHTEIL) --&gt; <font color="#FF0000"><a href="netzparameter_flaeche.pdf">Beispiel</a></font></td>
+    </tr>
+  </table>
+</div>
+<p><b><a name="b)">b)</a></b></p>
+<table border="1" cellpadding="0" cellspacing="0" width="85%">
+  <tr>
+    <td width="100%"><b><i>KOOPARAMETER.INI:</i></b> RMI mit einem zulässigen
+      RW (siehe <a href="#Zusatz 3:">Zusatz 3</a>) belegen.<br>
+      Die Reduktionen werden, wie oben beschrieben, an die Ein- und
+      Ausgabestrecken aller (sieh <a href="#Zusatz 2:">Zusatz 2</a>) in der <a href="NBZH_datei.htm">Beschreibung
+      zur NBZ-H-Datei aufgeführten Funktionen</a> angebracht (ggf. VORTEIL). In
+      Abhängigkeit von der geographischen Lage im Meridianstreifen kann sich
+      dies jedoch verfälschend auf das jeweilige Ergebnis auswirken (siehe <font color="#FF0000"><a href="netzparameter_flaeche.pdf">Beispiel</a></font>).<br>
+      Bei einer Flächenberechnung (siehe <font color="#FF0000"><a href="netzparameter_flaeche.pdf">Beispiel</a></font>)
+      kann der vom Nutzer gewählte RMI bei Flächen bis 10000m<sup>2</sup>
+      einen Flächenfehler von &gt; 1m<sup>2</sup> verursachen (NACHTEIL). Die
+      Größe des Fehlers hängt hauptsächlich davon ab, wo die Fläche im
+      Meridianstreifen liegt. <br>
+      Die Polygonzugberechnung erfolgt mit individuell eingegebenen
+      Netzkonstanten</td>
+  </tr>
+</table>
+<p><b>Zusammenfassend kann gesagt werden,...<br>
+</b>dass das Vorhandensein und Anwenden der NBZ-H-Datei entscheidet,</p>
+<ul>
+  <li>ob die verschiedenen Höhen der NBZ berücksichtigt werden.</li>
+  <li>wie die Netzkonstanten abgeleitet werden. </li>
+</ul>
+<p>Diese beiden Faktoren entscheiden über die Ausprägung der Reduktionen und
+nehmen somit Einfluss auf die Qualität der Ergebnisse. Die besten Ergebnisse
+werden sicherlich unter Verwendung dieser Datei erzielt, denn die Reduktionen
+werden ohne Auswertung und Einschätzung der jeweiligen geographischen Situation
+immer optimal ermittelt (vorausgesetzt wird eine Abstimmung mit den Bedingungen,
+unter denen die Daten ursprünglich entstanden sind).</p>
+<p>Wird auf die NBZ-H-Datei verzichtet, so muss der Nutzer je nach Lage seines
+Wirkungsfeldes und seines Anwendungsspektrums der VPR-Funktionen abwägen,
+welche der beschriebenen Möglichkeiten <a href="#a)">2a</a> und <a href="#b)">2b</a>
+den für ihn besten Kompromiss darstellt.</p>
+<p>Der Einfluss von Höhe und Rechtswert auf eine Flächenberechnung ist anhand
+eines <font color="#FF0000"><a href="netzparameter_flaeche.pdf">Beispiels</a></font>
+dokumentiert.</p>
+<hr size="1" width="95%">
+
+<table border="0" width="99%" cellspacing="0" class="ab">
+  <tr>
+    <td width="8%" align="left">
+<font size="1"><b><a name="Zusatz 1:">Zusatz 1:</a></b></font>
+    </td>
+    <td width="181%" align="left">
+      Vorausgesetzt wird, dass im Abschnitt &quot;Dateiorganisation&quot; der<b><i>
+      KOOINI.INI</i></b> der Parameter <b><i>NBH</i></b> auf &quot;1&quot;
+      gesetzt ist. Dadurch wird VPR verständlich gemacht, dass die NBZ-H-Datei
+      erzeugt bzw. genutzt werden soll.
+    </td>
+    <td width="6%" align="left">
+      <a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a>
+    </td>
+  </tr>
+  <tr>
+    <td width="8%" align="left">
+<b><font size="1"><a name="Zusatz 2:">Zusatz 2:</a></font></b>
+    </td>
+    <td width="181%" align="left">
+      Vorausgesetzt wird, dass die Reduktionszeile &quot;<b><i>RED03</i></b>&quot;
+      der <b><i>PRGINI.INI</i></b> den Eintrag &quot;<b><i>SGH=1</i></b>&quot;
+      enthält und nicht SGH=0, was der Standardreduktion entspräche und
+      lediglich die Funktionen &quot;Flächenberechnung&quot; und
+      &quot;Polygonzug&quot; berücksichtigen würde.
+    </td>
+    <td width="6%" align="left">
+    </td>
+  </tr>
+  <tr>
+    <td width="8%" align="left">
+<font size="1"><b><a name="Zusatz 3:">Zusatz 3:</a></b></font>
+    </td>
+    <td width="181%" align="left">
+      Zulässig bedeutet, einen mittleren Rechtswert festzulegen, der zwischen
+      den beiden Reduktionskonstanten (<b><i>KOOPARAMETER.INI</i></b>) <i><b>RKL</b></i>
+      (kleinster zulässiger RW) und <b><i>RGR</i></b> (größter zulässiger
+      RW) liegt.
+    </td>
+    <td width="6%" align="left">
+    </td>
+  </tr>
+</table>
+
+<hr size="1" width="95%">
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b>
+      <a href="reduktionen.htm">
+      <img border="0" src="../../../IMAGES/clipart/exit.gif" width="34" height="33"></a></b></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,498 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../../STYLE_RP.CSS">
+<title>Neue Seite 1</title>
+</head>
+
+<body class="inside">
+
+<h2><a name="oben">Reduktion</a> von Strecken </h2>
+<h3>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- allgemeiner Berechnungsweg</h3>
+
+<p>&nbsp;</p>
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td><b>Inhalt:</b></td>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        <li><a href="#Einführung">Einführung</a></li>
+        <li><a href="#1. Schritt:">Reduktion in den Beobachtungshorizont</a></li>
+        <li><a href="#2. Schritt:">NN-Reduktion</a></li>
+        <li><a href="#3. Schritt:">Gauß-Krüger Reduktion</a></li>
+        <li><a href="#Weitere">weitere Reduktionen</a></li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="../../Titelseite_GEOD.htm" class="back">zurück</a>
+    </td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><font color="#993333"><a name="Einführung">Einführung</a></font></h3>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<p><img border="0" src="Images/gelaende2g_k.gif" width="413" height="234" align=left hspace=5 vspace=5 alt="Reduktion zwischen Geländeebene und G-K-Ebene">Betrachtet man ein Bogenelement, so ist dessen Abbild (Karte) gegenüber dem
+ellipsoidischen Urbild verzerrt. Man unterscheidet grundsätzlich zwischen
+Richtungs- und Streckenverzerrung. Die verschiedenen Abbildungsverfahren
+unterscheiden sich untereinander in der jeweiligen Ausprägung der Verzerrungen.
+Bei der Gaußschen Abbildung ist die Richtungsverzerrung so geringfügig (1km
+lange Strecke 200 km vom Mittelmeridian wird weniger als 0,2 mgon verzerrt) ,
+dass sie in der Praxis im allgemeinen vernachlässigt wird. Die
+Streckenverzerrung - also die Dehnung, die jede Strecke des Urbildes bei der
+Gaußschen Abbildung erfährt - wächst mit dem Quadrat des Abstandes vom
+Mittelmeridian; ihre Auswirkungen dürfen daher auch bei manchen Aufgaben er
+einfachen Praxis nicht vernachlässigt werden. Der Betrag, um den die gemessenen
+Strecken vor Beginn der Rechnung auf ihren Wert in der Gaußschen Abbildung
+reduziert werden müssen, heißt <a href="#3. Schritt:"><i>Streckenreduktion</i><i>
+(G.-K.)</i></a>.&nbsp;</p>
+
+<p>Streng genommen gelten die bestimmten Reduktionswerte nur für Strecken im
+Meereshorizont. Bei Messungen in höheren Lagen kommt noch eine weitere
+Reduktion hinzu: die <a href="#2. Schritt:"><i>Höhenreduktion (auch
+NN-Reduktion)</i></a>. Alle Lagemessungen werden auf die Oberfläche des
+Bezugellipsoides projiziert. Die Oberfläche des Bezugsellipsoides aber fällt
+mit einer für Lagemessungen (nicht für Nivellements) ausreichenden Annäherung
+mit dem Landeshorizont (&quot;Normal Null&quot;) zusammen. Also ist die auf den
+Landeshorizont projizierte Strecke das Urbild für die Gaußsche Abbildung. Aus
+diesem Grund muss an den Ergebnissen von Streckenmessungen und
+Flächenbestimmungen, die auf der physischen Erdoberfläche in einer bestimmten
+Höhe über dem durch den Meeresspiegel gegebenen Landeshorizont vorgenommen
+werden, eine Reduktion angebracht werden, durch die das Messungsergebnis auf den
+Landeshorizont reduziert wird. Die Reduktion auf den Landeshorizont hat also
+eine Verkleinerung (ggf. Vergrößerung) der gemessenen Strecke zur Folge; sie
+wirkt damit (meistens) der Dehnung durch die Gaußsche Abbildung entgegen.
+Zweckmäßig fasst man die Streckenreduktion und die Höhenreduktion zusammen
+und erhält einen <a href="#Gesamtreduktion">Gesamtreduktionsbetrag</a>.</p>
+
+<p><br>
+</p>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><font color="#993333"><a name="1. Schritt:">1. Schritt:</a> Reduktion in den Beobachtungshorizont
+(Zenitwinkelreduktion)</font></h3>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<p>
+
+Ohne Berücksichtigung der Standpunkt- bzw. Zielpunkthöhe (z. B. Polygonzug)
+- dabei werden aus den Schrägstrecken Horizontalstrecken.<br>
+Die Zenitwinkelreduktion berechnet sich aus:<br>
+
+</p>
+
+<p>&nbsp;&nbsp;&nbsp; <img border="0" src="../../Geodaesie/reduktion/Images/Shz.gif" width="153" height="34"></p>
+<p><br>
+</p>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><font color="#993333"><a name="2. Schritt:">2. Schritt:</a> Höhenreduktion
+(NN-Reduktion)</font></h3>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+ 
+<img border="0" src="../../Geodaesie/reduktion/Images/Höhenreduktion.gif" align=left hspace=25 width="284" height="309">
+ An die Ergebnisse von Streckenmessungen, die auf der
+      physischen Erdoberfläche in einer bestimmten Höhe Hhz über dem durch
+      den Meeresspiegel gegebenen Landeshorizont &quot;Normal Null&quot;
+      vorgenommen werden, wird nun eine Reduktion angebracht, durch die das
+      Messungsergebnis auf den Landeshorizont reduziert wird. Wie aus der Skizze
+      geschlussfolgert werden kann, sind di Reduktionsbeträge bei Höhen über
+      0 (wie sie in M-V vorkommen) immer negativ (siehe Tabelle). Die NN-reduzierte Strecke wird
+      kleiner! Die Reduktion ist unabhängig von irgendwelchen
+      Koordinatensystemen - sie ist hauptsächlich abhängig von der gemessenen
+      horizontalen Strecke und vom Erdradius.<br>
+      <br>
+      Die NN-Reduktion berechnet sich aus:<br>
+      <br>
+      <img border="0" src="../../Geodaesie/reduktion/Images/rNN.gif" align=left hspace=20 width="122" height="60">mit&nbsp;<br>
+      H&nbsp;&nbsp;&nbsp; = Geländehöhe und<br>
+      Rm = <a href="schmiegekugelradius.htm"> mittlerem Erdradius für Messgebiet</a><br>
+<br>
+<br clear=all>
+<p>
+
+      Mit diesem Reduktionsbetrag lässt sich die&nbsp;im 1. Schritt ermittelte
+Horizontalstrecke bezüglich NN weiter reduzieren:<br>
+</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp; <img border="0" src="../../Geodaesie/reduktion/Images/sNN.gif" width="167" height="63">
+<p>&nbsp;</p>
+<p>In untenstehender Tabelle sind zum Zwecke der schnellen Abschätzung für
+einige Geländehöhen die entsprechenden Reduktionsbeträge aufgeführt. Diese
+Beträge sind nach obiger Formel an die Horizontalstrecken anzubringen.</p>
+<table border="1" width=200 cellspacing="0">
+  <tr>
+    <th width="60%">Geländehöhe</td>
+    <th width="40%"><b>ppm-Wert</b></td>
+  </tr>
+  <tr>
+    <td width="50%">100m</td>
+    <td width="50%">-16</td>
+  </tr>
+  <tr>
+    <td width="50%">200m</td>
+    <td width="50%">-31</td>
+  </tr>
+  <tr>
+    <td width="50%">300m</td>
+    <td width="50%">-47</td>
+  </tr>
+  <tr>
+    <td width="50%">400m</td>
+    <td width="50%">-63</td>
+  </tr>
+  <tr>
+    <td width="50%">500m</td>
+    <td width="50%">-78</td>
+  </tr>
+  <tr>
+    <td width="50%">600m</td>
+    <td width="50%">-94</td>
+  </tr>
+  <tr>
+    <td width="50%">800m</td>
+    <td width="50%">-125</td>
+  </tr>
+  <tr>
+    <td width="50%">1000m</td>
+    <td width="50%">-157</td>
+  </tr>
+  <tr>
+    <td width="50%">2000m</td>
+    <td width="50%">-313</td>
+  </tr>
+</table>
+<p><br>
+</p>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><font color="#993333"><a name="3. Schritt:">3. Schritt:</a>
+Gauß-Krüger-Reduktion</font></h3>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<img border="0" src="../../Geodaesie/reduktion/Images/g-k-abbildung.gif" align=left hspace=25 width="348" height="317">Um
+einer Verzerrung des Richtungswinkels entgegenzuwirken (anders als bei Soldner),
+wird bei diesem Berechnungsschritt der Ordinatenunterschied zwischen
+Streckenanfangs- und Endpunkt gedehnt. Die Winkeltreue kann also nur dadurch
+erreicht werden, indem das ebene Abbild gegenüber dem ellipsoidischen Urbild
+gedehnt wird.
+
+<br>
+<br>
+Mit der gemessenen Strecke ergibt sich die gesuchte Strecke im ebenen (gaußschen)
+Abbild zu:<br>
+<br>
+<img border="0" src="Images/sGK.gif" hspace=20 width="198" height="75"><br>
+mit&nbsp;<br>
+ym = Abstand zum Mittelmeridian<br>
+      Rm = <a href="schmiegekugelradius.htm">  als Halbmesser der&nbsp;Gaußschen Schmiegekugel</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; im Ordinatenfußpunkt ym<br>
+
+<br clear=all>
+
+<table border="0" width=800 cellspacing="0">
+  <tr>
+    <td width=600 class="padtopright">
+<p class="leftup">
+
+Die Tabelle zeigt auf der linken Seite den Abstand vom Mittelmeridian und auf
+der rechten Seite die zu der entsprechenden Mittelordinate passenden Beträge,
+um die eine 1km lange ellipsoidische Strecke bei der Gaußschen Abbildung
+gedehnt wird. Demnach wird eine Strecke in der gauß'schen Ebene um so mehr
+gedehnt, je weiter die betrachtete Stelle von der Abszissenachse
+(Mittelmeridian) entfernt ist. Es ist zu schlussfolgern, dass bei der Abbildung
+größerer Flächen außer den Strecken auch die Richtungen und damit die Winkel
+etwas verzerrt werden. Während diese Richtungsverzerrung in der Praxis
+verschwindend klein und damit unkritisch ist, wächst die Streckenverzerrung
+nach dem Quadrat des Abstandes vom Mittelmeridian! Vor Beginn weiterer
+Berechnungen muss also die gemessene Strecke mit Hilfe oben angegebener Formel
+auf ihren Wert in der Gaußschen Abbildung reduziert werden.</p>
+
+
+      <p>&nbsp;</td>
+    <td width=200>
+      <table border="1" width=200 cellspacing="0" class="inside">
+        <tr>
+    <th width="60%">Abstand vom Mittelmeridian</td>
+    <th width="40%"><b>ppm-Wert</b></td>
+        </tr>
+        <tr>
+    <td width="50%">10km</td>
+    <td width="50%">+1</td>
+        </tr>
+        <tr>
+    <td width="50%">20km</td>
+    <td width="50%">+5</td>
+        </tr>
+        <tr>
+    <td width="50%">30km</td>
+    <td width="50%">+11</td>
+        </tr>
+        <tr>
+    <td width="50%">40km</td>
+    <td width="50%">+20</td>
+        </tr>
+        <tr>
+    <td width="50%">50km</td>
+    <td width="50%">+31</td>
+        </tr>
+        <tr>
+    <td width="50%">60km</td>
+    <td width="50%">+44</td>
+        </tr>
+        <tr>
+    <td width="50%">70km</td>
+    <td width="50%">+60</td>
+        </tr>
+        <tr>
+    <td width="50%">80km</td>
+    <td width="50%">+79</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="5%"><img border="0" src="../../IMAGES/Dreieck.gif" width="32" height="33"></td>
+    <td width="95%">Die genannten Zusammenhänge gelten jedoch nur für Strecken im
+Meereshorizont. Bei Messungen in höheren Lagen ist die im 2. Schritt
+erläuterte Höhenreduktion (NN-Reduktion) unbedingt voranzustellen.</td>
+  </tr>
+</table>
+
+<p>Fasst man Strecken- und Höhenreduktion zusammen, ergibt sich ein <a name="Gesamtreduktion">
+Gesamtreduktionsbetrag</a> (ppm) mit der Formel:</p>
+
+<p>&nbsp;</p>
+
+<table border="0" width=800 cellspacing="0">
+  <tr>
+    <td width=220><img border="0" src="../../Geodaesie/reduktion/Images/rGES.gif" width="214" height="74"></td>
+    <td width=600>
+      <table border="1" width="95%" class="inside" cellspacing="0">
+        <tr>
+          <th width="8%">&nbsp;</th>
+          <th width="92%" colspan="11">Abstand vom Mittelmeridian</th>
+        </tr>
+        <tr>
+          <th width="8%">Höhe</td>
+          <th class="heller" width="8%">0km</th>
+          <th class="heller" width="8%">10km</th>
+          <th class="heller" width="8%">20km</th>
+          <th class="heller" width="8%">30km</th>
+          <th class="heller" width="8%">40km</th>
+          <th class="heller" width="8%">50km</th>
+          <th class="heller" width="8%">60km</th>
+          <th class="heller" width="9%">70km</th>
+          <th class="heller" width="9%">80km</th>
+          <th class="heller" width="9%">90km</th>
+          <th class="heller" width="9%">100km</th>
+        </tr>
+        <tr>
+          <th class="heller" width="8%">0m</th>
+          <td width="8%">0</td>
+          <td width="8%">+1</td>
+          <td width="8%">+5</td>
+          <td width="8%">+11</td>
+          <td width="8%">+20</td>
+          <td width="8%">+31</td>
+          <td width="8%">+44</td>
+          <td width="9%">+60</td>
+          <td width="9%">+79</td>
+          <td width="9%">+100</td>
+          <td width="9%">+123</td>
+        </tr>
+        <tr>
+          <th class="heller" width="8%">50m</th>
+          <td width="8%">-8</td>
+          <td width="8%">-7</td>
+          <td width="8%">-3</td>
+          <td width="8%">+3</td>
+          <td width="8%">+12</td>
+          <td width="8%">+23</td>
+          <td width="8%">+36</td>
+          <td width="9%">+52</td>
+          <td width="9%">+71</td>
+          <td width="9%">+92</td>
+          <td width="9%">+115</td>
+        </tr>
+        <tr>
+          <th class="heller" width="8%">100m</th>
+          <td width="8%">-16</td>
+          <td width="8%">-14</td>
+          <td width="8%">-11</td>
+          <td width="8%">-5</td>
+          <td width="8%">+4</td>
+          <td width="8%">+15</td>
+          <td width="8%">+28</td>
+          <td width="9%">+44</td>
+          <td width="9%">+63</td>
+          <td width="9%">+83</td>
+          <td width="9%">+107</td>
+        </tr>
+        <tr>
+          <th class="heller" width="8%">200m</th>
+          <td width="8%">-31</td>
+          <td width="8%">-30</td>
+          <td width="8%">-26</td>
+          <td width="8%">-20</td>
+          <td width="8%">-12</td>
+          <td width="8%">-1</td>
+          <td width="8%">+13</td>
+          <td width="9%">+29</td>
+          <td width="9%">+47</td>
+          <td width="9%">+68</td>
+          <td width="9%">+92</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<ul class="info">
+  <li class="info"><font color="#C0C0C0">Bei EDM-Geräten bedeutet 1ppm eine
+    Streckenänderung von 1mm auf einer Distanz von 1000m (1:1.000.000)</font></li>
+  <li class="info"><font color="#C0C0C0">Angenommen ein Messgebiet befindet sich
+    in einem bestimmten Abstand zum Mittelmeridian. In diesem Messgebiet
+    befinden sich eine nord-süd-ausgerichtete und eine west-ost-ausgerichtete
+    Strecke mit gleichem Anfangspunkt. Solange der Einzugsbereich des gesamten
+    Messgebietes eine West-Ost-Ausdehnung von bis zu 10 km nicht überschreitet,
+    liefert die o. g. Streckenreduktion eine für Katasterverhältnisse
+    hinreichende Genauigkeit. Bei größeren Ausdehnungen (im Kataster eher
+    unwahrscheinlich) sollte ein anderer Ansatz gewählt werden (ein mittlerer
+    Rechtwert stellvertretend für das Messgebiet lässt zu große Abweichungen
+    zwischen Abbildung und tatsächlicher Strecke/Fläche zu!).</font></li>
+</ul>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><font color="#993333"><a name="Weitere">Weitere </a>Reduktionen:</font></h3>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<p>weitere mögliche Reduktionsschritte zur fallgebundenen
+Genauigkeitssteigerung sind:&nbsp;</p>
+<ul>
+  <li><b>1. Geschwindigkeitskorrektion</b> = meteorologische Korrektion<br>
+    <br>
+    sie wird bei den meisten Messgeräten nach der Messung der meteorologischen
+    Daten als Korrekturfaktor eingestellt und automatisch berücksichtigt. Mit
+    speziellen Herstellerangaben kann dieser Korrekturfaktor eigenständig
+    berechnet werden.&nbsp;<br>
+    <br>
+  </li>
+  <li><b>2. Geschwindigkeitskorrektion</b>&nbsp;<br>
+    <br>
+    Werden auf beiden Endpunkten der Messstrecke die meteorologischen Daten
+    gemessen, so gelten diese Werte entlang der &quot;Messkurve&quot;. Der wahre
+    Strahlengang verläuft jedoch darunter, da der Messstrahl immer zum
+    dichteren Medium abgelenkt wird. Der hierdurch entstehende systematische
+    Fehler wird durch diese Korrektion berücksichtigt. Da sich der Einfluss des
+    Korrekturfaktors erst bei Strecken über 10km bemerkbar macht, wird auf eine
+    detaillierte Definition verzichtet.<br>
+  </li>
+</ul>
+<ul class="info">
+  <li>1. und 2. Geschwindigkeitskorrektion haben Einfluss auf die Bestimmung der
+    <b>
+    Nullpunktkorrektion<br>
+    <br>
+    </b></li>
+</ul>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><font color="#993333"><a name="Anwendungsfelder">Anwendungsfelder</a> der
+Höhen- und Streckenreduktion</font></h3>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<p><b>Die Höhen- und Steckenreduktion ist insbesondere in folgenden Fällen
+anzubringen: </b></p>
+<p><b><br>
+a)</b> Zur Berechnung von G.-K.-Koordinaten aufgrund von Streckenmessungen;
+insbesondere ist beim einfachen und mehrfachen Bogenschnitt und bei
+Punktbestimmungen aus kombinierten Richtungs- und Streckenmessungen jede
+gemessene Strecke vor dem Eintritt in die Rechnung auf ihren Wert in der
+Gaußschen Abbildung zu reduzieren <br>
+<br>
+<b>b)</b> Auch beim Polygonzug empfiehlt es sich, die gemessenen Seiten zu
+reduzieren. Zwar werden durch das Verteilen des aus den Messungsungenauigkeiten
+und der Projektionsverzerrung herrührenden Koordinatenabschlussfehlers die
+Streckenreduktion und die Höhenreduktion automatisch berücksichtigt; die Summe
+der Messungsungenauigkeiten und die Projektionsverzerrungen sind jedoch oftmals
+von der gleichen Größenordnung. Ohne Kenntnis des Betrages der Strecken- und
+Höhenreduktion lässt sich also nicht beurteilen, inwieweit die amtlichen
+Fehlergrenzen eingehalten oder überschritten sind. </p>
+<p><br>
+<b>c)</b> Beim Berechnen der Länge einer örtlichen Strecke aus den G.-K.-Koordinaten
+ihrer Endpunkte wird die Reduktion mit umgekehrten Vorzeichen angebracht. Das
+ist besonders bei Feinabsteckungen und sonstigen Ingenieurarbeiten vor allem
+dann zu beachten, wenn die Absteckungen in größerer Entfernung vom
+Mittelmeridian vorgenommen werden. </p>
+<p><br>
+<b>d)</b> Das gleiche gilt für die Flächenberechnung aus G.-K.-Koordinaten.
+Ist &quot;f&quot; die aus G.-K.-Koordinaten errechnete Bildfläche, so lässt
+sich anstatt mit o. a. Formel die Flächenreduktion &quot;r&quot; ausreichend
+genau auch aus der Formel</p>
+<p>&nbsp;&nbsp;&nbsp; <img border="0" src="Images/flaechereduktion_naeherung.gif" width="79" height="45"></p>
+<p>bestimmen. </p>
+<p>Diese Formel ist eine Näherungsformel die für die Reduktion einer Fläche
+von bis zu 10 qkm ausreicht.<br>
+<br>
+</p>
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="97%" align="center"><br>
+      <a href="../../Titelseite_GEOD.htm"><img border="0" src="../../IMAGES/clipart/exit.gif" width="34" height="33"></a></td>
+    <td width="3%" align="center"><a href="#oben"><img border="0" src="../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+
+</body>
+
+</html>

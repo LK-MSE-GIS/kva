@@ -1,0 +1,1985 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../../../STYLE_RP.CSS">
+<title>Datei der Nummerierungsbezirkshöhen</title>
+</head>
+
+<body>
+
+<h2><font color="#993333"><a name="oben">Di</a>e Datei der
+Nummerierungsbezirkshöhen<br>
+und deren Einfluss auf die für die Reduktionen anzuhaltenden Netzkonstanten</font></h2>
+<p><br>
+</p>
+
+<table border="0" width="944" cellspacing="0" class="ab">
+  <tr>
+    <td width="349">
+      <h3><b>Inhalt:<br>
+      &nbsp;</b></h3>
+    </td>
+    <td width="587">
+      <h3></h3>
+    </td>
+  </tr>
+  <tr>
+    <td width="349" align="left">
+      <ol>
+        <li><b><a href="#1. Verwendung von Reduktions- und Netzkonstanten" class="bold">Allgemeines
+          zur Verwendung von&nbsp;<br>
+          Reduktions- und Netzkonstanten in VPR</a></b></li>
+      </ol>
+    </td>
+    <td width="587" align="left">
+      <ol>
+        <li value="2"><b><a href="#2. Reduktion bei Anwendung der Datei der Nummerierungsbezirkshöhen" class="bold">Reduktion
+          bei Anwendung der Datei<br>
+          der Nummerierungsbezirkshöhen</a></b></li>
+      </ol>
+    </td>
+  </tr>
+  <tr>
+    <td width="349">
+      <blockquote>
+        <ol>
+        <li><a href="#1.1 Reduktions- und Netzkonstanten"><font size="1">Reduktions- und
+          Netzkonstanten</font></a></li>
+        <li><a href="#1.2 Die Netzkonstanten und die Datei der Nummerierungsbezirkshöhen"><font size="1">Die
+          Netzkonstanten und die Datei<br>
+          der Nummerierungsbezirkshöhen</font></a></li>
+        <li><a href="#1.3 Datei der Nummerierungsbezirkshöhen"><font size="1">Datei der
+          Nummerierungsbezirkshöhen</font></a></li>
+        </ol>
+      </blockquote>
+    </td>
+    <td width="587">
+      <blockquote>
+        <ol>
+          <li><a href="#2.1 Reduktionshöhe eines Ausgangspunktes"><font size="1">Reduktionshöhe
+            des Ausgangspunktes</font></a></li>
+          <li><a href="#2.2 ORT - Orthogonalpunktberechnung"><font size="1">ORT
+            - Orthogonalpunktberechnung</font></a></li>
+          <li><a href="#2.3 POL - Polarpunktberechnung über polares Anhängen"><font size="1">POL
+            - Polarpunktberechnung über polares Anhängen</font></a></li>
+          <li><a href="#2.4 POL - Polarpunktberechnung über Transformation"><font size="1">POL
+            - Polarpunktberechnung über Transformation</font></a></li>
+          <li><font size="1"><a href="#2.5 GER - Geradenschnitt">GER -
+            Geradenschnitt</a></font></li>
+          <li><font size="1"><a href="#2.6 BOG - Bogenschnitt">BOG -
+            Bogenschnitt</a></font></li>
+          <li><font size="1"><a href="#2.7 RIW - Richtungswinkel und Entfernung">RIW
+            - Richtungswinkel und Entfernung</a></font></li>
+          <li><font size="1"><a href="#2.8 FLA - Flächenberechnung">FLA -
+            Flächenberechnung</a> <font color="#FF0000"><b>(*)</b></font></font></li>
+          <li><font size="1"><a href="#2.9 ZUG - Polygonzug">ZUG - Polygonzug</a>
+            <font color="#FF0000"><b>(*)</b></font></font></li>
+          <li><font size="1"><a href="#2.10 OAB - Orthogonale Absteckelemente">OAB
+            - Orthogonale Absteckelemente</a></font></li>
+          <li><font size="1"><a href="#2.11 KTR - Koordinatentransformation">KTR
+            - Koordinatentransformation</a></font></li>
+          <li><font size="1"><a href="#2.12  3-6  3- bis 6-Parameter-Transformation">3-6
+            - 3-bis 6-Parameter-Transformation</a></font></li>
+          <li><font size="1"><a href="#2.13 VOR - Vorwärtsschnitt">VOR -
+            Vorwärtsschnitt</a></font></li>
+          <li><font size="1"><a href="#2.14 RUE - Rückwärtsschnitt">RUE -
+            Rückwärtsschnitt</a></font></li>
+          <li><font size="1"><a href="#2.15 WEG - Wegepunktberechnung">WEG -
+            Wegepunktberechnung</a></font></li>
+          <li><font size="1"><a href="#2.16 LIE - Linienpunktverfahren">LIE -
+            Linienpunktverfahren</a></font></li>
+          <li><font size="1"><a href="#2.17 ANZ - Koordinaten- und Streckenanzeige">ANZ
+            - Koordinaten- und Streckenanzeige</a></font></li>
+          <li><font size="1"><a href="#2.18 SPA - Spannmaßkontrolle">SPA -
+            Spannmaßkontrolle</a></font></li>
+          <li><font size="1"><a href="#2.19 ZEN - Zentrierung">ZEN - Zentrierung</a></font></li>
+          <li><font size="1"><a href="#2.20 KRK - Schnitt Kreis/Kreis">KRK -
+            Schnitt Kreis/Kreis</a></font></li>
+          <li><font size="1"><a href="#2.21 RWG - Koordinatenberechnung rechtwinkliger Gebäude">RWG
+            - Koordinatenberechnung rechtwinkliger Gebäude</a></font></li>
+          <li><font size="1"><a href="#2.22 KBM - Koordinatenberechnung aus Breitenmassen">KBM
+            - Koordinatenberechnung aus Breitenmassen</a></font></li>
+          <li><font size="1"><a href="#2.23 KRA - Kreisbogenabsteckung mit Koordinatentransformation">KRA
+            - Kreisbogenabsteckung mit Koordinatentransformation</a></font></li>
+          <li><font size="1"><a href="#2.24 TKR - Tangente an Kreis">TKR -
+            Tangente an Kreis</a></font></li>
+          <li><font size="1"><a href="#2.25 KRG - Schnitt Kreis/Gerade">KRG -
+            Schnitt Kreis/Gerade</a></font></li>
+          <li><font size="1"><a href="#2.26 KRM - Kreismittelpunkt und Radius">KRM
+            - Kreismittelpunkt und Radius</a></font></li>
+          <li><font size="1"><a href="#2.27 KLA - Klothoidenabsteckung mit Koordinatentransformation">KLA
+            - Klothoidenabsteckung mit Koordinatentransformation</a></font></li>
+          <li><font size="1"><a href="#2.28 FST - Freie Stationierung">FST -
+            Freie Stationierung</a></font></li>
+          <li><font size="1"><a href="#2.29 PAB - Polare Absteckelemente">PAB -
+            Polare Absteckelemente</a></font></li>
+          <li><font size="1"><a href="#2.30 TZK - Tangente an zwei Kreise">TZK -
+            Tangente an zwei Kreise</a></font></li>
+          <li><font size="1"><a href="#2.31 KZT - Kreis an zwei Tangenten">KZT -
+            Kreis an zwei Tangenten</a></font></li>
+          <li><font size="1"><a href="#2.32 KGP - Kreis an eine Gerade durch einen Punkt">KGP
+            - Kreis an eine Gerade durch einen Punkt</a></font></li>
+          <li><font size="1"><a href="#2.33 KZK - Korbbogen an zwei Kreise">KZK
+            - Korbbogen an zwei Kreise</a></font></li>
+          <li><font size="1"><a href="#2.34 KKG - Korbbogen zwischen Kreis und Gerade">KKG
+            - Korbbogen zwischen Kreis und Gerade</a></font></li>
+        </ol>
+      </blockquote>
+    </td>
+  </tr>
+  <tr>
+    <td width="349">
+        &nbsp;
+        <p><a href="reduktionen.htm" class="back">zurück</a>
+    </td>
+    <td width="587">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+  </tr>
+</table>
+
+<hr size="1" width="95%">
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h2><a name="1. Verwendung von Reduktions- und Netzkonstanten">1. Allgemeines
+zur Verwendung von
+Reduktions- und Netzkonstanten</a>
+ in VPR
+</h2>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></p>
+    </td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="1.1 Reduktions- und Netzkonstanten">1.1 Reduktions- und
+Netzkonstanten</a>
+</h3>
+    </td>
+    <td width="3%">
+      <h3 align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a></h3>
+    </td>
+  </tr>
+</table>
+
+<p>Zur Berücksichtigung von Reduktionen bei Berechnungen müssen
+Reduktionskonstanten und Netzkonstanten herangezogen werden. </p>
+<p><b>Die Reduktionskonstanten...</b></p>
+<p>können vom Administrator in der VPR-Initialisierung definiert werden. Sie
+sollten (zur Wahrung gleicher Voraussetzungen) für alle Punkte, die sich im
+selben Meridianstreifen befinden, identisch sein. Zu den Reduktionskonstanten
+gehören: </p>
+<ul>
+  <li>Erdradius</li>
+  <li>Rechtswert des Koordinatenursprungs</li>
+  <li>Kleinster zulässiger Rechtswert</li>
+  <li>Größter zulässiger Rechtswert</li>
+  <li>Faktor für Korrektur der Zenitdistanz wegen Neigung</li>
+</ul>
+<p>Welche <b>Netzkonstanten</b>...</p>
+<p>VPR für die jeweiligen Funktionen benutzt, kann nicht allgemeingültig
+gesagt werden. Dies hängt im wesentlichen von Einstellungen in der VPR-Initialisierung
+ab, die der Administrator entsprechend der jeweiligen Anforderungen bzw. der
+Datenherkunft selber beeinflussen kann. Zu den Netzkonstanten gehören:</p>
+<ul>
+  <li>Netzmaßstab (Maßstabsreduktion)</li>
+  <li>Mittlere Gebietshöhe (NN-Reduktion)</li>
+  <li>Mittlerer Rechtswert ohne Meridiankennziffer (G-K-Reduktion wegen
+    Projektionsverzerrung)</li>
+</ul>
+<p>Auf welche Art und Weise diese Netzkonstanten von VPR genutzt oder
+gegebenenfalls automatisch ermittelt werden, wird bereits beim Anlegen der
+Koordinatendatei (Anlegen eines Projektes) festgelegt. Welche Möglichkeiten es
+für den Nutzer gibt, auf die Auswahl bzw. Definition der Netzkonstanten
+Einfluss zu nehmen, sollen die folgenden Hinweise erläutern:</p>
+
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="5%"><img border="0" src="../../../IMAGES/Dreieck.gif" width="32" height="33"></td>
+    <td width="95%">Während also die Reduktionskonstanten eher von globaler
+      Bedeutung sind und daher allen Berechnungen gleichermaßen zu Grunde
+      liegen, muss man die Netzkonstanten wesentlich differenzierter betrachten.
+      Die Netzkonstanten sollten so gewählt werden, dass sie als
+      Berechnungsgrundlage der jeweiligen Situation bestmöglich angepasst sind.
+      Die wesentlichste Rolle spielt hierbei die Kenntnis über die Herkunft der
+      Daten.<br>
+      Im Folgenden soll daher das Hauptaugenmerk auf der Betrachtung der
+      Netzkonstanten liegen:</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="1.2 Die Netzkonstanten und die Datei der Nummerierungsbezirkshöhen">1.2
+Die Netzkonstanten und die Datei der Nummerierungsbezirkshöhen</a>
+</h3>
+    </td>
+    <td width="3%">
+      <h3 align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a></h3>
+    </td>
+  </tr>
+</table>
+
+<p>Für die <i><a href="../../../Geodaesie/reduktion/Reduktion.htm#2. Schritt:">NN-Reduktion</a></i>,
+<b><i>Maßstabs-Reduktion</i></b> und <i><a href="../../../Geodaesie/reduktion/Reduktion.htm#3. Schritt:">Gauß-Krüger-Reduktion
+wegen Projektionsverzerrung</a></i> werden, wie bereits erwähnt, folgenden
+Netzkonstanten benötigt (nachfolgend werden die angegebenen Abkürzungen
+verwendet):</p>
+<ul>
+  <li>Reduktionshöhe (<b>RDH</b>)</li>
+  <li>Netzmaßstab </li>
+  <li>Mittlerer Rechtswert (<b>MRW</b>) (ohne Meridiankennziffer abzüglich
+    Rechtswert des Koordinaten-Ursprungs (Koordinaten-Zuschlag))</li>
+</ul>
+
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="5%"><img border="0" src="../../../IMAGES/Dreieck.gif" width="32" height="33"></td>
+    <td width="95%">Diese Netzkonstanten werden in Abhängigkeit von der
+      Berücksichtigung<br>
+      der Datei der Nummerierungsbezirkshöhen wie folgt abgeleitet:</td>
+  </tr>
+</table>
+
+<ul>
+  <li><b>Sofern die Datei der Nummerierungsbezirkshöhen <u>nicht</u>
+    berücksichtigt wird...<br>
+    </b>und die individuelle Eingabe/Änderung der Netzkonstanten möglich ist
+    (z. B. Polygonzugberechnung), werden die NN-Reduktion, Maßstabs-Reduktion
+    und Gauß-Krüger-Reduktion wegen Projektionsverzerrung mit den individuell
+    eingegebenen Netzkonstanten durchgeführt. <br>
+    Ist die individuelle Eingabe/Änderung der Netzkonstanten nicht möglich,
+    werden die Reduktionen (bis auf wenige Ausnahmen) einheitlich mit den in der
+    VPR-Initialisierung definierten Netzkonstanten durchgeführt.</li>
+  <li><b>Sofern die Datei der Nummerierungsbezirkshöhen berücksichtigt wird,...<br>
+    </b>wird die individuelle Eingabe/Änderung der Netzkonstanten nicht
+    ermöglicht. In diesem Fall werden die NN-Reduktion, Maßstabs-Reduktion und
+    Gauß-Krüger-Reduktion wegen Projektionsverzerrung mit dem in der
+    KOO-Parameterdatei definierten Netzmaßstab, mit einer individuell
+    abgeleiteten Reduktionshöhe und mit einem individuell abgeleiteten
+    mittleren Rechtswert durchgeführt. Sofern der individuell abgeleitete
+    mittlere Rechtswert nicht innerhalb des Wertebereichs &quot;kleinster
+    zulässiger Rechtswert - größter zulässiger Rechtswert&quot; liegt,
+    werden die Reduktionen mit dem in der KOO-Parameterdatei definierten
+    mittleren Rechtswert durchgeführt.</li>
+</ul>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="1.3 Datei der Nummerierungsbezirkshöhen">1.3 Datei der
+Nummerierungsbezirkshöhen</a>
+</h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p>Die Datei der Nummerierungsbezirkshöhen wird bei entsprechenden
+Einstellungen in der VPR-Initialisierung automatisch beim Anlegen einer
+Koordinatendatei aus der &quot;<i><a href="#Sequentielle Datei der Nummerierungsbezirkshöhen">Sequentiellen
+Datei der Nummerierungsbezirkshöhen</a></i>&quot; erzeugt. </p>
+<p>Voraussetzung ist also die &quot;Sequentielle Datei der
+Nummerierungsbezirkshöhen&quot;, die im geforderten Format einmal für den
+gesamten Landkreis bzw. den gesamten Einzugsbereich einer Katasterbehörde
+aufgestellt werden muss. Anzustreben ist eine vollständige Erfassung aller NBZ
+und deren (mittleren) Höhen in dieser Datei. Existiert in der Datei ein NBZ
+ohne Höhe (falls diese u. U. nicht bekannt ist), so wird für den
+entsprechenden NBZ automatisch der als mittlerer Höhenwert in der
+VPR-Initialisierung festgelegte Wert verwendet. Deshalb sollte dort eine
+möglichst repräsentative Höhe eingetragen sein! </p>
+<p>Die Datei der Nummerierungsbezirkshöhen beinhaltet in verschlüsselter Form
+(binär) die individuellen Definitionen von Mittlerer Höhe und Mittlerem RW
+für alle unter <a href="#2. Reduktion bei Anwendung der Datei der Nummerierungsbezirkshöhen"> 2.</a> aufgeführten VPR-Funktionen.</p>
+<p><br>
+<b><a name="Sequentielle Datei der Nummerierungsbezirkshöhen">Sequentielle
+Datei der Nummerierungsbezirkshöhen</a></b></p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%" height="5">
+  <tr>
+    <td width="23%" height="18"><b>Beispiel:</b></td>
+    <td width="77%" height="18"><b>Format:</b></td>
+  </tr>
+  <tr>
+    <td width="23%" height="1"><img border="0" src="pic/NBHsequ_bsp.gif" width="107" height="126"></td>
+    <td width="77%" height="1"><img border="0" src="pic/NBHsequ_format.gif" width="290" height="277"></td>
+  </tr>
+  <tr>
+    <td width="23%" height="1"></td>
+    <td width="77%" height="1"><font color="#C0C0C0">Die Freiräume entsprechen
+      jeweils einem Leerzeichen</font></td>
+  </tr>
+</table>
+<div align="left">
+  <table border="1" cellpadding="0" cellspacing="0" width="97%">
+    <tr>
+      <td width="100%">
+<p><b>Zusammenfassend kann gesagt werden,...</b></p>
+<p>dass das Vorhandensein und Anwenden der Datei der Nummerierungsbezirkshöhen
+entscheidet, </p>
+<ul>
+  <li>ob die verschiedenen Höhen der NBZ berücksichtigt werden</li>
+  <li>wie die Netzkonstanten abgeleitet werden. </li>
+</ul>
+<p>Diese beiden Faktoren entscheiden über die Ausprägung der Reduktionen und
+nehmen somit Einfluss auf die Qualität der Ergebnisse.</p>
+
+      </td>
+    </tr>
+  </table>
+</div>
+
+<hr size="1" width="95%">
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h2><a name="2. Reduktion bei Anwendung der Datei der Nummerierungsbezirkshöhen">2.
+Reduktion bei Anwendung der Datei der Nummerierungsbezirkshöhen</a></h2>
+    </td>
+    <td width="3%"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp.gif" width="24" height="24"></a></td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.1 Reduktionshöhe eines Ausgangspunktes">2.1 Reduktionshöhe
+eines Ausgangspunktes</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p>Sofern die Datei der Nummerierungsbezirkshöhen berücksichtigt wird, wird
+die NN-Reduktion mit einer individuell abgeleiteten Reduktionshöhe
+durchgeführt. Für die Ableitung dieser individuellen Reduktionshöhe wird
+teilweise auch die Reduktionshöhe von Ausgangspunkten benötigt, die wie folgt
+bestimmt wird:</p>
+<p>Die in der Datei der Nummerierungsbezirkshöhen gespeicherte
+Nummerierungsbezirkshöhe wird als Reduktionshöhe übernommen. Sofern der
+Nummerierungsbezirk nicht in der Datei der Nummerierungsbezirkshöhen
+gespeichert ist, wird die in der KOO-Parameterdatei definierte mittlere
+Gebietshöhe (HOM) als Reduktionshöhe übernommen.</p>
+<p>&nbsp;</p>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.2 ORT - Orthogonalpunktberechnung">2.2 ORT - Orthogonalpunktberechnung</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="97%">
+    <tr>
+      <td width="6%">RDH:</td>
+      <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+        Reduktionshöhe des Endpunktes</td>
+    </tr>
+    <tr>
+      <td width="6%">MRW:</td>
+      <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert
+        des Endpunktes</td>
+    </tr>
+  </table>
+</div>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.3 POL - Polarpunktberechnung über polares Anhängen">2.3 POL - Polarpunktberechnung über polares Anhängen</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Standpunkt-Fernpunkt </b>(Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Standpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke zum Neupunkt</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<p>&nbsp;</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Standpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.4 POL - Polarpunktberechnung über Transformation">2.4 POL - Polarpunktberechnung über Transformation</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Standpunkt-Anschlusspunkt</b> (Geländehöhe --&gt;
+Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel der Rechtswerte aller Anschlusspunkte
+      (einschließlich Standpunkt)</td>
+  </tr>
+</table>
+<p><b>Strecke zum Neupunkt</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel der Rechtswerte aller Anschlusspunkte
+      (einschließlich Standpunkt)</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.5 GER - Geradenschnitt">2.5 GER - Geradenschnitt</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt (Gerade 1)</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Endpunkt (Gerade 2) </b>(Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+<p><b>Parallel- und Lotabstand</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel der Reduktionshöhen aller am Geradenschnitt
+      beteiligten Ausgangspunkte (einschließlich der Ausgangspunkte, die zur
+      Definition der Sonderfälle herangezogen werden)&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel der Rechtswerte aller am Geradenschnitt beteiligten
+      Ausgangspunkte (einschließlich der Ausgangspunkte, die zur Definition der
+      Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Ausgangspunkte, die mehrfach am Geradenschnitt
+      beteiligt sind, werden bei der Berechnung des Mittels nur einmal
+      berücksichtigt.</td>
+  </tr>
+</table>
+<p><b>Strecken der Ausgangspunkte zum Schnittpunkt </b>(Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Ausgangspunktes und Nummerierungsbezirkshöhe
+      des Schnittpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Ausgangspunktes und Rechtswert des
+      Schnittpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.6 BOG - Bogenschnitt">2.6 BOG - Bogenschnitt</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+<p><b>Strecken der Ausgangspunkte zum Neupunkt</b> (Geländehöhe --&gt;
+Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.7 RIW - Richtungswinkel und Entfernung">2.7 RIW - Richtungswinkel und Entfernung</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Zielpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Anfangspunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Anfangspunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.8 FLA - Flächenberechnung">2.8 FLA - Flächenberechnung</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Bogenanfangspunktes und
+      Reduktionshöhe des Bogenendpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Bogenanfangspunktes und Rechtswert
+      des Bogenendpunktes</td>
+  </tr>
+</table>
+<p><b>berechnete Strecke</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+<p><b>Radius, Bogenlänge, Sehne, Pfeilhöhe</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Bogenanfangspunktes und
+      Reduktionshöhe des Bogenendpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Bogenanfangspunktes und Rechtswert
+      des Bogenendpunktes</td>
+  </tr>
+</table>
+<p><b>Segmentfläche</b> (Gauß-Krüger --&gt; Geländehöhe) <font color="#FF0000" size="3"><b>(*)</b></font>:</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Nummerierungsbezirkshöhe des Bogenanfangspunktes
+      und Nummerierungsbezirkshöhe des Bogenendpunktes (sofern kreisförmige
+      Grenzen über Bogenanfangspunkt, Bogenendpunkt und Kreisradius festgelegt
+      werden) beziehungsweise Mittel aus Nummerierungsbezirkshöhe des
+      Bogenanfangspunktes und Nummerierungsbezirkshöhe des Bogenendpunktes und
+      Nummerierungsbezirkshöhe des Kreismittelpunktes (sofern kreisförmige
+      Grenzen über Bogenanfangspunkt, Kreismittelpunkt und Bogenendpunkt
+      festgelegt werden)<br>
+      Nummerierungsbezirke, die mehrfach beteiligt sind, werden bei der
+      Berechnung des Mittels nur einmal berücksichtigt.</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Bogenanfangspunktes und Rechtswert
+      des Bogenendpunktes (sofern kreisförmige Grenzen über Bogenanfangspunkt,
+      Bogenendpunkt und Kreisradius festgelegt werden) beziehungsweise Mittel
+      aus Rechtswert des Bogenanfangspunktes und Rechtswert des Bogenendpunktes
+      und Rechtswert des Kreismittelpunktes (sofern kreisförmige Grenzen über
+      Bogenanfangspunkt, Kreismittelpunkt und Bogenendpunkt festgelegt werden)<br>
+      Sofern die Datei der Nummerierungsbezirkshöhen nicht berücksichtigt wird
+      und in der KOO-Parameterdatei kein mittlerer Rechtswert definiert ist oder
+      der in der KOO-Parameterdatei definierte mittlere Rechtswert den Wert Null
+      aufweist, wird der mittlere Rechtswert aus dem Rechtswert des ersten
+      Flächenpunktes bestimmt.</td>
+  </tr>
+</table>
+<p><b>Fläche</b> (Gauß-Krüger --&gt; Geländehöhe) <font color="#FF0000" size="3"><b>(*)</b></font>:</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel der Nummerierungsbezirkshöhen aller an der
+      Flächenberechnung beteiligten Nummerierungsbezirke (maximal 50)<br>
+      Nummerierungsbezirke, die mehrfach an der Flächenberechnung beteiligt
+      sind, werden bei der Berechnung des Mittels nur einmal berücksichtigt.</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel der Rechtswerte aller Flächeneckpunkte (ohne
+      Endpunkt) Sofern die Datei der Nummerierungsbezirkshöhen nicht
+      berücksichtigt wird und in der KOO-Parameterdatei kein mittlerer
+      Rechtswert definiert ist oder der in der KOO-Parameterdatei definierte
+      mittlere Rechtswert den Wert Null aufweist, wird der mittlere Rechtswert
+      aus dem Rechtswert des ersten Flächenpunktes bestimmt.</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.9 ZUG - Polygonzug">2.9 ZUG - Polygonzug</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Fernpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Anfangspunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Anfangspunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Endpunkt-Fernpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Endpunktes</td>
+  </tr>
+</table>
+<p><b>Rückblickstrecke, Vorblickstrecke, gemittelte horizontale Strecke (erste
+Berechnung)</b> (Geländehöhe --&gt; Gauß-Krüger) <font color="#FF0000" size="3"><b>(*)</b></font>:</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Anfangspunktes des Polygonzuges</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Anfangspunktes des Polygonzuges Sofern die
+      Datei der Nummerierungsbezirkshöhen nicht berücksichtigt wird, werden
+      die Reduktionen mit den individuell eingegebenen Netzkonstanten
+      durchgeführt. In diesem Fall entfällt die zweite Berechnung.</td>
+  </tr>
+</table>
+<p><b>Rückblickstrecke, Vorblickstrecke, gemittelte horizontale Strecke (zweite
+Berechnung)</b> (Geländehöhe --&gt; Gauß-Krüger) <font color="#FF0000" size="3"><b>(*)</b></font>:</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes der Strecke
+      und Reduktionshöhe des Endpunktes der Strecke<br>
+      Die Reduktionshöhe eines Neupunktes wird wie folgt bestimmt:&nbsp;<br>
+      Sofern die Datei der Nummerierungsbezirkshöhen berücksichtigt wird und
+      beim Anlegen der Koordinatendatei die Sonderattribute Punktart
+      Agrarstruktur Niedersachsen und Vermarkungsart Agrarstruktur Niedersachsen
+      aktiviert wurden und eine Höhenberechnung durchgeführt, wird die Höhe
+      als Reduktionshöhe übernommen. Anderenfalls wird die
+      Nummerierungsbezirkshöhe (wenn der Nummerierungsbezirk in der Datei der
+      Nummerierungsbezirkshöhen gespeichert ist) beziehungsweise die in der
+      KOO-Parameterdatei definierte mittlere Gebietshöhe (wenn der
+      Nummerierungsbezirk nicht in der Datei der Nummerierungsbezirkshöhen
+      gespeichert ist) als Reduktionshöhe übernommen.</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes der Stecke und
+      Rechtswert des Endpunktes der Strecke Sofern die Datei der
+      Nummerierungsbezirkshöhen nicht berücksichtigt wird, entfällt diese
+      zweite Berechnung.</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.10 OAB - Orthogonale Absteckelemente">2.10 OAB - Orthogonale Absteckelemente</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.11 KTR - Koordinatentransformation">2.11 KTR - Koordinatentransformation</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.12  3-6  3- bis 6-Parameter-Transformation">2.12&nbsp; 3-6&nbsp; 3- bis 6-Parameter-Transformation</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Koordinaten (altes System)</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des ersten Passpunktes (sofern
+      AP-Sicherungen berechnet werden) beziehungsweise Mittel der
+      Reduktionshöhen aller Passpunktes (sofern Objektpunkte berechnet werden)</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des ersten Passpunktes (sofern AP-Sicherungen
+      berechnet werden) beziehungsweise Mittel der Rechtswerte aller Passpunkte
+      (sofern Objektpunkte berechnet werden)</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.13 VOR - Vorwärtsschnitt">2.13 VOR - Vorwärtsschnitt</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecken zwischen Neupunkt und Ausgangspunkten</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Ausgangspunktes und Nummerierungsbezirkshöhe
+      des Neupunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Ausgangspunktes und Rechtswert des
+      Neupunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.14 RUE - Rückwärtsschnitt">2.14 RUE - Rückwärtsschnitt</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecken zwischen Neupunkt und Ausgangspunkten</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Ausgangspunktes und Nummerierungsbezirkshöhe
+      des Neupunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Ausgangspunktes und Rechtswert des
+      Neupunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.15 WEG - Wegepunktberechnung">2.15 WEG - Wegepunktberechnung</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Richtpunkt-Leitpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und
+      Reduktionshöhe des Leitpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      Leitpunktes</td>
+  </tr>
+</table>
+<p><b>berechnete Verschiebemaße</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und
+      Reduktionshöhe des linken Leitpunktes und Reduktionshöhe des rechten
+      Leitpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      linken Leitpunktes und Rechtswert des rechten Leitpunktes</td>
+  </tr>
+</table>
+<p><b>eingegebene Verschiebemaße</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und
+      Reduktionshöhe des linken Leitpunktes und Reduktionshöhe des rechten
+      Leitpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      linken Leitpunktes und Rechtswert des rechten Leitpunktes</td>
+  </tr>
+</table>
+<p><b>Kehrenmaße</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und
+      Reduktionshöhe des linken Leitpunktes und Reduktionshöhe des rechten
+      Leitpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      linken Leitpunktes und Rechtswert des rechten Leitpunktes</td>
+  </tr>
+</table>
+<p><b>berechnete Strecke in Winkelhalbierender</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und Nummerierungsbezirkshöhe
+      des Neupunktes&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      Neupunktes</td>
+  </tr>
+</table>
+<p><b>eingegebene Strecke in Winkelhalbierender</b> (Geländehöhe --&gt;
+Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und
+      Reduktionshöhe des linken Leitpunktes und Reduktionshöhe des rechten
+      Leitpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      linken Leitpunktes und Rechtswert des rechten Leitpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Richtpunkt-Neupunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Richtpunktes und Nummerierungsbezirkshöhe
+      des Neupunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Richtpunktes und Rechtswert des
+      Neupunktes</td>
+  </tr>
+</table>
+<p><b>Spannmaß Neupunkt-Neupunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Nummerierungsbezirkshöhe des Anfangspunktes und
+      Nummerierungsbezirkshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.16 LIE - Linienpunktverfahren">2.16 LIE - Linienpunktverfahren</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+<p><b>Anlegemaß und gemessene Strecke</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.17 ANZ - Koordinaten- und Streckenanzeige">2.17 ANZ - Koordinaten- und Streckenanzeige</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.18 SPA - Spannmaßkontrolle">2.18 SPA - Spannmaßkontrolle</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und
+      Reduktionshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+      Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.19 ZEN - Zentrierung">2.19 ZEN - Zentrierung</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p>Strecke Standpunkt-Fernpunkt (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Rechtswert des Standpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke zum Neupunkt</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Rechtswert des Standpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.20 KRK - Schnitt Kreis/Kreis">2.20 KRK - Schnitt Kreis/Kreis</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel der Reduktionshöhen aller am Schnitt Kreis/Kreis beteiligten
+Ausgangspunkte (einschließlich der Ausgangspunkte, die zur Definition der
+Sonderfälle herangezogen werden).</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel der Rechtswerte aller am Schnitt Kreis/Kreis
+beteiligten Ausgangspunkte (einschließlich der Ausgangspunkte, die zur
+Definition der Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Ausgangspunkte, die mehrfach am Schnitt
+      Kreis/Kreis beteiligt sind, werden bei der Berechnung des Mittels nur
+      einmal berücksichtigt.</td>
+  </tr>
+</table>
+<p><b>Parallel- und Lotabstand</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel der Reduktionshöhen aller am Schnitt Kreis/Kreis beteiligten
+Ausgangspunkte (einschließlich der Ausgangspunkte, die zur Definition der
+Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel der Rechtswerte aller am Schnitt Kreis/Kreis
+beteiligten Ausgangspunkte (einschließlich der Ausgangspunkte, die zur
+Definition der Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"> Ausgangspunkte, die mehrfach am Schnitt
+Kreis/Kreis beteiligt sind, werden bei der Berechnung des Mittels nur einmal
+berücksichtigt.</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.21 RWG - Koordinatenberechnung rechtwinkliger Gebäude">2.21 RWG
+- Koordinatenberechnung rechtwinkliger Gebäude</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke zwischen koordinatenmäßig bekannten Punkten</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p>Spannmaß (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes (sofern Anfangs- und Endpunkt koordinatenmäßig bekannt sind)
+beziehungsweise Mittel der Reduktionshöhen aller koordinatenmäßig bekannten
+Punkte (sofern der Anfangs- und/oder Endpunkt koordinatenmäßig nicht bekannt
+ist)</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des Endpunktes
+(sofern Anfangs- und Endpunkt koordinatenmäßig bekannt sind) beziehungsweise
+Mittel der Rechtswerte aller koordinatenmäßig bekannten Punkte (sofern der
+Anfangs- und/oder Endpunkt koordinatenmäßig nicht bekannt ist)</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.22 KBM - Koordinatenberechnung aus Breitenmassen">2.22 KBM - Koordinatenberechnung aus Breitenmassen</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Endmaß aus Zuteilung</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Breitenmaß aus Zuteilung</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.23 KRA - Kreisbogenabsteckung mit Koordinatentransformation">2.23
+KRA - Kreisbogenabsteckung mit Koordinatentransformation</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Passpunkt 1-Passpunkt 2</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe von Passpunkt 1 und Reduktionshöhe von
+Passpunkt 2</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert von Passpunkt 1 und Rechtswert von
+Passpunkt 2</td>
+  </tr>
+</table>
+<p><b>Strecke Passpunkt 1-Passpunkt 3</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe von Passpunkt 1 und Reduktionshöhe von
+Passpunkt 3</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert von Passpunkt 1 und Rechtswert von
+Passpunkt 3</td>
+  </tr>
+</table>
+<p><b>Strecke Tangentenschnittpunkt-Bogenanfangspunkt</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe beziehungsweise Nummerierungsbezirkshöhe des
+Tangentenschnittpunktes und Reduktionshöhe beziehungsweise Nummerierungsbezirkshöhe des Bogenanfangspunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Tangentenschnittpunktes und Rechtswert des Bogenanfangspunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Tangentenschnittpunkt-Bogenendpunkt</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe beziehungsweise Nummerierungsbezirkshöhe des
+Tangentenschnittpunktes und Reduktionshöhe beziehungsweise Nummerierungsbezirkshöhe des Bogenendpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Tangentenschnittpunktes und Rechtswert des Bogenendpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.24 TKR - Tangente an Kreis">2.24 TKR - Tangente an Kreis</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Tangentenschnittpunktes und
+Reduktionshöhe des Kreismittelpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Tangentenschnittpunktes und Rechtswert des Kreismittelpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.25 KRG - Schnitt Kreis/Gerade">2.25 KRG - Schnitt Kreis/Gerade</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Kreispunkt 1-Kreispunkt 2</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des ersten Kreispunktes und Reduktionshöhe
+des zweiten Kreispunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des ersten Kreispunktes und
+Rechtswert des zweiten Kreispunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Kreispunkt 2-Kreispunkt 3</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des ersten Kreispunktes und Reduktionshöhe
+des dritten Kreispunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des ersten Kreispunktes und
+Rechtswert des dritten Kreispunktes</td>
+  </tr>
+</table>
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel der Reduktionshöhen aller am Schnitt Kreis/Gerade
+      beteiligten Ausgangspunkte (einschließlich der Ausgangspunkte, die zur
+      Definition der Sonderfälle herangezogen werden)&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel der Rechtswerte aller am Schnitt Kreis/Gerade
+beteiligten Ausgangspunkte (einschließlich der Ausgangspunkte, die zur
+Definition der Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2">Ausgangspunkte, die mehrfach am Schnitt
+      Kreis/Gerade beteiligt sind, werden bei der Berechnung des Mittels nur
+      einmal berücksichtigt.&nbsp;</td>
+  </tr>
+</table>
+<p><b>Parallel- und Lotabstand</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel der Reduktionshöhen aller am Schnitt Kreis/Gerade beteiligten
+Ausgangspunkte (einschließlich der Ausgangspunkte, die zur Definition der
+Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel der Rechtswerte aller am Schnitt Kreis/Gerade
+beteiligten Ausgangspunkte (einschließlich der Ausgangspunkte, die zur
+Definition der Sonderfälle herangezogen werden)</td>
+  </tr>
+  <tr>
+    <td width="100%" colspan="2"> Ausgangspunkte, die mehrfach am Schnitt
+Kreis/Gerade beteiligt sind, werden bei der Berechnung des Mittels nur einmal
+berücksichtigt.</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.26 KRM - Kreismittelpunkt und Radius">2.26 KRM - Kreismittelpunkt und Radius</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Radius</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des ersten Kreispunktes und Reduktionshöhe
+des zweiten Kreispunktes und Reduktionshöhe des dritten Kreispunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">
+Mittel aus Rechtswert des ersten Kreispunktes und Rechtswert des zweiten
+Kreispunktes und Rechtswert des dritten Kreispunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.27 KLA - Klothoidenabsteckung mit Koordinatentransformation">2.27
+KLA - Klothoidenabsteckung mit Koordinatentransformation</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Passpunkt 1-Passpunkt 2</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe von Passpunkt 1 und Reduktionshöhe von
+Passpunkt 2</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%">Mittel aus Rechtswert von Passpunkt 1 und Rechtswert von
+Passpunkt 2</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.28 FST - Freie Stationierung">2.28 FST - Freie Stationierung</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Standpunkt-Anschlusspunkt</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Gemittelte Standpunkthöhe, die mit den Reduktionshöhen der
+Anschlusspunkte berechnet wird</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel der Rechtswerte aller Anschlusspunkte</td>
+  </tr>
+</table>
+<p><b>Strecke zum Neupunkt</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Gemittelte Standpunkthöhe, die mit den Reduktionshöhen der
+Anschlusspunkte berechnet wird</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel der Rechtswerte aller Anschlusspunkte</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.29 PAB - Polare Absteckelemente">2.29 PAB - Polare Absteckelemente</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Standpunkt-Fernpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Rechtswert des Standpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Standpunkt-Transformationspunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Reduktionshöhe des Standpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Rechtswert des Standpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.30 TZK - Tangente an zwei Kreise">2.30 TZK - Tangente an zwei Kreise</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Kreismittelpunktes Kreis 1 und
+Reduktionshöhe des Kreismittelpunktes Kreis 2</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Kreismittelpunktes Kreis 1 und Rechtswert des Kreismittelpunktes Kreis 2</td>
+  </tr>
+</table>
+<p><b>Strecke Kreismittelpunkt Kreis 1-Kreismittelpunkt Kreis 2</b> (Gauß-Krüger
+--&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Kreismittelpunktes Kreis 1 und
+Reduktionshöhe des Kreismittelpunktes Kreis 2&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Kreismittelpunktes Kreis 1 und Rechtswert des Kreismittelpunktes Kreis 2</td>
+  </tr>
+</table>
+<p><b>Strecke Tangentenpunkt 1-Tangentenpunkt 2</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Nummerierungsbezirkshöhe des ersten Tangentenpunktes und
+Nummerierungsbezirkshöhe des zweiten Tangentenpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus
+Rechtswert des ersten Tangentenpunktes und Rechtswert des zweiten
+Tangentenpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.31 KZT - Kreis an zwei Tangenten">2.31 KZT - Kreis an zwei Tangenten</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt (Gerade 1)</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Endpunkt (Gerade 2)</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%">Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes Gerade 1 und
+Reduktionshöhe des Endpunktes Gerade 1 und Reduktionshöhe des Anfangspunktes
+Gerade 2 und Reduktionshöhe des Endpunktes Gerade 2</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert
+des Anfangspunktes Gerade 1 und Rechtswert des Endpunktes Gerade 1 und
+Rechtswert des Anfangspunktes Gerade 2 und Rechtswert des Endpunktes Gerade 2</td>
+  </tr>
+</table>
+<p><b>Strecken der Ausgangspunkte zum Schnittpunkt</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Ausgangspunktes und Nummerierungsbezirkshöhe des Schnittpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Ausgangspunktes und Rechtswert des Schnittpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Neupunkt-Neupunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Nummerierungsbezirkshöhe des Anfangspunktes und
+Nummerierungsbezirkshöhe des Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Anfangspunktes und Rechtswert des Endpunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.32 KGP - Kreis an eine Gerade durch einen Punkt">2.32 KGP - Kreis an eine Gerade durch einen Punkt</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Kreispunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Kreispunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Kreispunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Neupunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Nummerierungsbezirkshöhe des Neupunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Anfangspunktes und Rechtswert des Neupunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Kreispunkt-Neupunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Kreispunktes und Nummerierungsbezirkshöhe
+des Neupunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Kreispunktes und Rechtswert des
+Neupunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.33 KZK - Korbbogen an zwei Kreise">2.33 KZK - Korbbogen an zwei Kreise</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Radius</b> (Geländehöhe --&gt; Gauß-Krüger):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Kreismittelpunktes Kreis 1 und
+Reduktionshöhe des Kreismittelpunktes Kreis 2</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Kreismittelpunktes Kreis 1 und Rechtswert des Kreismittelpunktes Kreis 2</td>
+  </tr>
+</table>
+<p><b>Strecke Kreismittelpunkt Kreis 1-Kreismittelpunkt Kreis 2</b> (Gauß-Krüger
+--&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Kreismittelpunktes Kreis 1 und
+Reduktionshöhe des Kreismittelpunktes Kreis 2</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Kreismittelpunktes Kreis 1 und Rechtswert des Kreismittelpunktes Kreis 2</td>
+  </tr>
+</table>
+<p><b>Strecke Kreismittelpunkt Kreis 1-Neupunkt</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Kreismittelpunktes Kreis 1 und
+Nummerierungsbezirkshöhe des Neupunktes&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Kreismittelpunktes Kreis 1 und Rechtswert des Neupunktes</td>
+  </tr>
+</table>
+
+<table border="0" width="97%" cellspacing="0" class="ab">
+  <tr>
+    <td width="97%">
+<h3><a name="2.34 KKG - Korbbogen zwischen Kreis und Gerade">2.34 KKG - Korbbogen zwischen Kreis und Gerade</a></h3>
+    </td>
+    <td width="3%">
+      <p align="center"><a href="#oben"><img border="0" src="../../../IMAGES/pfeile/NavUp_small.gif" width="17" height="17"></a>&nbsp;
+      </p>
+    </td>
+  </tr>
+</table>
+
+<p><b>Strecke Anfangspunkt-Endpunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Endpunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und Rechtswert des
+Endpunktes</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Kreismittelpunkt Kreis 1</b> (Gauß-Krüger --&gt;
+Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Reduktionshöhe des
+Kreismittelpunktes Kreis 1</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des Anfangspunktes und
+Rechtswert des Kreismittelpunktes Kreis 1</td>
+  </tr>
+</table>
+<p><b>Strecke Anfangspunkt-Neupunkt</b> (Gauß-Krüger --&gt; Geländehöhe):</p>
+<table border="0" cellpadding="0" cellspacing="0" width="97%">
+  <tr>
+    <td width="6%">RDH:</td>
+    <td width="94%"> Mittel aus Reduktionshöhe des Anfangspunktes und Nummerierungsbezirkshöhe des Neupunktes</td>
+  </tr>
+  <tr>
+    <td width="6%">MRW:</td>
+    <td width="94%"> Mittel aus Rechtswert des
+Anfangspunktes und Rechtswert des Neupunktes</td>
+  </tr>
+</table>
+
+<hr size="1" width="95%">
+
+<p>&nbsp;</p>
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b>
+      <a href="reduktionen.htm">
+      <img border="0" src="../../../IMAGES/clipart/exit.gif" width="34" height="33"></a></b></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

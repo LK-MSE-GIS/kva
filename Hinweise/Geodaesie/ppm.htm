@@ -1,0 +1,282 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../STYLE_RP.CSS">
+<title>Restklaffen und Restklaffungsbeseitigung</title>
+</head>
+
+<body>
+
+<h2><font color="#993333">Was bedeutet <i>ppm </i>?</font></h2>
+
+<p><br>
+<b>PPM</b> ist die Abkürzung von “<b>P</b>arts <b>P</b>er <b>M</b>illion“,
+d.h. 1 ppm = 1mal 10<sup>-6</sup> oder 1/1.000.000 Teil eines Ganzen.
+</p>
+
+<p><br>
+Bei den EDM Gerätesystemen bedeutet 1 ppm eine Streckenänderung von 1 mm auf
+einer Distanz von 1000 m. Bei den Angaben der Hersteller bezüglich der
+Distanzmessgenauigkeit steht stets ein konstantes Glied und ein
+distanzabhängiges Glied z.B.: ± 3 mm + 3 ppm.
+</p>
+
+<p>Die Meteorologie (Luftdruck, Temperatur und auch der Partialdruck des
+Wasserdampfes) beeinflussen die Ausbreitungsgeschwindigkeit der Messwellen.
+</p>
+
+<p><br>
+Der ppm Null-Wert liegt z.B. bei den EDM-Geräten von Geodimeter bei 20 °C und
+bei 1013 hpascal. Je 1°C Temperaturänderung und / oder 4 Einheiten in der
+Änderung des Luftdruckes beeinflussen den ppm Wert um eine Einheit, jedoch in
+entgegengesetzter Richtung. Bei Messungen von Distanzen im Nahbereich bis ca.
+200-250 m kann der ppm Wert vernachlässigt, bzw. auf Null gestellt werden. Bei
+längeren Distanzen ist diese Korrektur jedoch unbedingt zu beachten. Bei den
+heutigen Geräten wird der ppm Wert meist im Dialog mit dem Benutzer bestimmt
+oder sogar z.B. bei Zeiss EDM Geräten automatisch angebracht, d.h. in diesen
+Geräten ist ein Temperatursensor und ein Barometer integriert. Nun kann
+allerdings mit der ppm- Wert Eingabe noch mehr erreicht werden
+(distanzabhängige Korrekturen). Bei Messungen muss je nach Höhe des
+Messgebietes über Normal-Null eine Höhenreduktion (immer negativ) angebracht
+werden (<a href="#Tabelle 2">Tabelle 1</a>) und je nach Lage des Gebiets im
+Gauß- Krüger Koordinatensystem (östlich oder westlich vom Mittelmeridian)
+eine GK- Korrektur angebracht werden (immer positiv, <a href="#Tabelle 2">Tabelle
+2</a>). Die Summe all dieser Werte zusätzlich noch evtl. vorhandenen
+Maßstabsfehler nach einer Prüfstreckenmessung kann in einem ppm-Wert
+zusammengefasst werden.
+</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%" class="headline">
+  <tr>
+    <td>
+<b>Beispiel 1</b>
+    </td>
+    <td width="17"></td>
+  </tr>
+</table>
+
+<div align="left">
+  <table border="0" cellpadding="0" cellspacing="0" width="450">
+    <tr>
+      <td width="304"><b>Einfluss</b></td>
+      <td width="292"><b>ppm</b></td>
+    </tr>
+    <tr>
+      <td width="304">t= 5 °C; p=1.022 hpascal </td>
+      <td width="292">-18</td>
+    </tr>
+    <tr>
+      <td width="304">NN-Höhe =300m</td>
+      <td width="292">-47</td>
+    </tr>
+    <tr>
+      <td width="304">Abstand vom Mittelmeridian = 90 km</td>
+      <td width="292">+100</td>
+    </tr>
+  </table>
+</div>
+<table border="0" cellpadding="0" cellspacing="0" width="450">
+  <tr>
+    <td width="303"><b>Gesamt-ppm</b></td>
+    <td width="293"><b>+35</b></td>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%" class="headline">
+  <tr>
+    <td>
+<b>Beispiel 2</b>
+    </td>
+    <td width="17"></td>
+  </tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" width="450">
+  <tr>
+    <td width="304"><b>Einfluss</b></td>
+    <td width="292"><b>ppm</b></td>
+  </tr>
+  <tr>
+    <td width="304">t= 25 °C; p=989 hpascal </td>
+    <td width="292">+11</td>
+  </tr>
+  <tr>
+    <td width="304">NN Höhe = 600m</td>
+    <td width="292">-94</td>
+  </tr>
+  <tr>
+    <td width="304">Abstand vom Mittelmeridian = 20 km</td>
+    <td width="292">+5</td>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="450">
+  <tr>
+    <td width="302"><b>Gesamt-ppm</b></td>
+    <td width="294"><b>-78</b></td>
+  </tr>
+</table>
+
+<hr size="1" width="95%">
+
+<p>Wie aus den Beispielen ersichtlich ist, kann die Summe der Einflüsse den
+Messwert markant beeinflussen!
+</p>
+
+<p>Bei entsprechenden Vermessungsaufgaben sollte in jedem Falle geprüft werden,
+ob ein Korrekturwert zweckmäßigerweise direkt bei der Messung eingestellt
+werden kann. Allerdings sollten die Einzeldaten (Temperatur, Luftdruck,
+NN-Höhe, und Abstand vom Mittelmeridian) in geeigneter Weise festgehalten bzw.
+dokumentiert werden, damit bei einer Suche nach der Ursache von Fehlern und
+Spannungen auch die evt. Fehlerquelle ppm-Wert falsch, ausgeschaltet werden
+kann. Es ist bereits des öfteren vorgekommen, dass ein EDM-System wegen
+Messfehlern zum Service geschickt wurde. Dann stellte sich heraus, dass das
+System einwandfrei funktionierte, der Messtruppführer den Luftdruck grob falsch
+notiert hatte oder gar in einer anderen Einheit z.B. mm/Hg. Ein Luftdruck z.B.
+von 903 hpascal sollte den Praktiker stutzig werden lassen. Der Luftdruck bewegt
+sich in unseren Breiten normalerweise zwischen 970 und 1030 hpascal.
+</p>
+
+<p>Bei sehr hoch gelegenen Messgebieten entsprechend niedriger: pro 10m
+Höhenunterschied sinkt der Luftdruck um etwa eine Einheit.
+</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%" class="headline">
+  <tr>
+    <td>
+<b><a name="Tabelle 1">Tabelle 1</a> - Höheneinfluss&nbsp; (Reduktion auf NN)</b>
+    </td>
+    <td width="17"></td>
+  </tr>
+</table>
+
+<p>
+ppm (Höhe)= Hm/ R *10 6<br>
+- R= Erdradius in km = 6381 km<br>
+- H<sub>m</sub>= mittlere Geländehöhe in m
+</p>
+
+  <table border="0" cellpadding="0" cellspacing="0" width="400">
+    <tr>
+      <td width="92"><b>NN Höhe</b></td>
+      <td width="304"><b>Verbesserung (ppm)</b></td>
+    </tr>
+    <tr>
+      <td width="92">100m </td>
+      <td width="304">-16</td>
+    </tr>
+    <tr>
+      <td width="92">200m </td>
+      <td width="304">-31</td>
+    </tr>
+    <tr>
+      <td width="92">300m </td>
+      <td width="304">-47</td>
+    </tr>
+    <tr>
+      <td width="92">400m </td>
+      <td width="304">-63</td>
+    </tr>
+    <tr>
+      <td width="92">500m </td>
+      <td width="304">-78</td>
+    </tr>
+    <tr>
+      <td width="92">600m </td>
+      <td width="304">-94</td>
+    </tr>
+    <tr>
+      <td width="92">800m </td>
+      <td width="304">-125</td>
+    </tr>
+    <tr>
+      <td width="92">1000m </td>
+      <td width="304">-157</td>
+    </tr>
+    <tr>
+      <td width="92">2000m </td>
+      <td width="304">-313</td>
+    </tr>
+  </table>
+<ul class="info">
+  <li>hat in M-V kaum Einfluss, da geringe Geländehöhen</li>
+</ul>
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%" class="headline">
+  <tr>
+    <td>
+<b><a name="Tabelle 2">Tabelle 2</a> - Abstand vom Mittelmeridian
+(G-K-Reduktion)</b>
+    </td>
+    <td width="17"></td>
+  </tr>
+</table>
+
+<p>
+ppm(GK)= Y<sup>2</sup> (km) / 2*R<sup>2</sup>(km) * 10<sup>6</sup><br>
+- Y= Abstand vom Mittelmeridian (unter Beachtung der 500 000m) in km
+</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="400">
+  <tr>
+    <td width="92"><b>Abstand vom Mittelmeridian</b></td>
+    <td width="304"><b>ppm-Wert</b></td>
+  </tr>
+  <tr>
+    <td width="92">10km </td>
+    <td width="304">+1</td>
+  </tr>
+  <tr>
+    <td width="92">20km </td>
+    <td width="304">+5</td>
+  </tr>
+  <tr>
+    <td width="92">30km </td>
+    <td width="304">+11</td>
+  </tr>
+  <tr>
+    <td width="92">40km </td>
+    <td width="304">+20</td>
+  </tr>
+  <tr>
+    <td width="92">50km </td>
+    <td width="304">+31</td>
+  </tr>
+  <tr>
+    <td width="92">60km </td>
+    <td width="304">+44</td>
+  </tr>
+  <tr>
+    <td width="92">70km </td>
+    <td width="304">+60</td>
+  </tr>
+  <tr>
+    <td width="92">80km </td>
+    <td width="304">+79</td>
+  </tr>
+</table>
+
+<ul class="info">
+  <li>reduzierte Strecke = s<sub>gem</sub> + ppm<sub>(G-K)</sub></li>
+</ul>
+
+<hr size="1" width="95%">
+
+<p>
+<font color="#C0C0C0" size="1">Quelle: Landesvermessungsamt Hessen</font>
+</p>
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b>
+      <a href="../Titelseite_GEOD.htm">
+      <img border="0" src="../IMAGES/clipart/exit.gif" width="34" height="33"></a></b></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

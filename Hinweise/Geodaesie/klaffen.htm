@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../STYLE_RP.CSS">
+<title>Restklaffen und Restklaffungsbeseitigung</title>
+</head>
+
+<body>
+
+<h2><font color="#993333">Restklaffe und Restklaffungsbeseitigung</font></h2>
+
+<p>Der graphische ALK-Datenbestand besteht weitestgehend aus digitalisierten
+Flurkarten - nur in wenigen Bereichen handelt es sich um gemessene Daten
+(Vektordaten). Im Laufe der Zeit wird der digitalisierte Bestand durch aktuelle
+Daten ersetzt. Führt man gemessene Daten ein, kommt es zwangsläufig zu
+Spannungen mit dem digitalisierten Bestand. Um diese Spannungen zu minimieren
+muss der digitalisierte Bestand am Randbereich nachbarschaftstreu angepasst
+werden...
+</p>
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%" class="headline">
+  <tr>
+    <td>
+<b>Was ist eine <a name="Restklaffe">Restklaffe</a>?</b>
+    </td>
+    <td width="17"></td>
+  </tr>
+</table>
+
+<p>
+Restklaffungen treten immer dann auf, wenn es sich um eine <a href="trafo.htm" class="txt">Transformation</a>
+mit Überbestimmungen handelt. In einem solchen Fall werden die
+Transformationsparameter mit Hilfe einer Ausgleichung ermittelt. Mit diesen
+Parametern sollten sich die mittels der Transformation berechneten Koordinaten
+bestmöglich an die Koordinaten anpassen, die bereits im &quot;alten&quot;
+System gegeben sind.
+</p>
+<p>Aufgrund von Messungenauigkeiten, und weiteren Einflüssen ist es höchst
+unwahrscheinlich, dass nach einer Transformation mit Überbestimmungen die berechneten
+Punkte genau identisch mit den vorhandenen Punkten sind. Die übrigbleibenden Abweichungen in den Koordinaten
+nennt man Restklaffen.<br>
+<br>
+&nbsp;&nbsp;&nbsp; <img border="0" src="Images/restklaffe.gif" width="362" height="276">
+</p>
+<ul class="info">
+  <li>Mit Hilfe der Restklaffungen in den
+Koordinatenkomponenten der identischen Punkte lassen sich die Netzspannungen
+beurteilen. Kleine Restklaffungen bedeuten
+dabei hohe Punktlagegenauigkeit!</li>
+  <li>
+      Die Summe der Restklaffen muss sowohl in X als auch in Y zu &quot;0&quot;
+      werden.</li>
+  <li>Liegen die Restklaffungen vor, so kann man entscheiden, welche identischen
+Punkte besser nicht für die Bestimmung der Transformationsparameter benutzt
+werden sollten. Die Transformation ist dann so lange zu wiederholen, bis die
+Ergebnisse zufriedenstellend sind.</li>
+</ul>
+
+<table border="0" cellpadding="0" cellspacing="0" width="95%" class="headline">
+  <tr>
+    <td>
+<b>Was ist Restklaffungsbeseitigung?</b>
+    </td>
+    <td width="17"></td>
+  </tr>
+</table>
+
+<p>
+Durch die <a href="trafo.htm" class="txt">Transformation</a> sind die <a href="#Restklaffe" class="txt"> Klaffungen</a> an den
+Passpunkten zwar minimiert, aber nicht vollständig beseitigt. Wenn zur  Beseitigung der Restklaffungen an diesen Punkten
+<u> nur</u> ein Koordinatenaustausch erfolgt,  würde der Nachbarschaftsbezug zu den übrigen
+Punkten (Neupunkte) verletzt.  Mit der Einführung der Sollkoordinaten
+(Klaffungen beseitigen) muss daher eine umgebungstreue Verbesserung der übrigen  Punkte
+einhergehen. Man spricht hier von Restklaffungsbeseitigung.</p>
+<p><br>
+Genauer gesagt heißt das:</p>
+<p>Der gegebene &quot;Alt&quot;punkt wird mit dem Betrag der Restklaffe auf den
+transformierten Punkt &quot;verschoben&quot;. Um die Nachbarschaftstreue zu den
+umliegenden übrigen Punkten zu wahren, wirken sich Betrag und Richtung des
+Klaffungsvektors auch auf die transformierten Nachbarschaftspunkte aus. Liegen
+beispielsweise um einen Neupunkt drei Passpunkte, so wirken sich all deren
+Klaffungen auf diesen Neupunkt aus...</p>
+<p>In welcher Form eine Klaffung auf die benachbarten Punkte wirkt, hängt davon
+ab, welcher Ansatz zur Restklaffungsbeseitigung gewählt wurde...</p>
+<p><br>
+Hierfür gibt es im allgemeinen die folgende Möglichkeiten:</p>
+<ul>
+  <li><b> Multiquadratische Interpolation<br>
+    </b>...zeichnet sich durch weitgehende Unempfindlichkeit  in bezug auf ungleichmäßige
+    Passpunktdichte und -verteilung aus</li>
+  <li><b> Transformationen nach Abstandsgewichten mit  verschiedenen Gewichtsansätzen<br>
+    </b>...sollten verwendet werden, wenn Verbesserungen für transformierte
+    Neupunkte ermittelt werden sollen, die außerhalb des durch die Passpunkte abgedeckten Gebietes
+    liegen (Extrapolation). Die abstandsgewichtete Restklaffungsbeseitigung ist ebenfalls zweckmäßig bei einer sehr großen Anzahl von Stützpunkten
+    - dabei werden jeweils die am nächsten liegenden Passpunkte in die Interpolation einbezogen.&nbsp;<br>
+ Für die abstandsgewichtete Interpolation stehen verschiedene Gewichtsansätze zur Verfügung, die aber bei ausreichender Anzahl an Stützpunkten und deren gleichmäßiger Verteilung nahezu gleiche Ergebnisse liefern. Die besten Ergebnisse werden meist mit dem Ansatz
+    <b> 1/(S**1.5)</b> erzielt.</li>
+</ul>
+<p>Welches dieser Verfahren angewendet wird, hängt davon ab, wie die
+vorhandenen Passpunkt verteilt sind.</p>
+
+<p>
+<br>
+<br>
+</p>
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b>
+      <a href="../Titelseite_GEOD.htm">
+      <img border="0" src="../IMAGES/clipart/exit.gif" width="34" height="33"></a></b></td>
+  </tr>
+</table>
+
+</body>
+
+</html>

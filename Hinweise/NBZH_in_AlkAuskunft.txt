@@ -1,0 +1,6 @@
+Wenn die Nummerierungsbezirkshöhen in VPR verwendet werden, sollten sie auch in die ALK-Auskunft eingebunden werden. Die Höhenangaben werden dann für die Flächenreduktionen bei Flächenberechnungen verwendet. Andernfalls wird weiterhin mit dem Standardwert bzw. vom Administrator vorgegebenen Wert gerechnet.
+
+Einbindung der NBZ-Höhen in die ALK-Auskunft:
+
+1. Kopieren Sie die NBZ-Höhendatei in das Verzeichnis der ALK-Auskunft bzw. in das vorhandene Verzeichnis "Listen". Es bietet sich an, die Dateierweiterung *.lst zu vergeben, wie bei allen anderen Listendateien auch.
+2. Tragen Sie in dei Datei "auskunft.ini" im Programmverzeichnis der ALK-Auskunft den Parameter "List_NBZ_Hoehe=Listen/<NBZ-Höhendatei>" ein, wobei <NBZ-Höhendatei> durch den Dateinamen ersetzt werden muss.

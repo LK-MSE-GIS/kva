@@ -1,0 +1,1 @@
+ALTER TABLE `antrag` ADD `vorb_re_datum` DATE DEFAULT '0000-00-00' NOT NULL AFTER `vorb_unterl` ;

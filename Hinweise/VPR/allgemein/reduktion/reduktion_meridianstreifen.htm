@@ -1,0 +1,87 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<link rel="stylesheet" type="text/css" href="../../../STYLE_RP.CSS">
+<title>Besonderheiten bei Reduktionen am Meridianstreifenübergang</title>
+</head>
+
+<body>
+
+<h2><font color="#993333">Besonderheiten bei Reduktionen in Gebieten mit
+Meridianstreifenübergang</font></h2>
+<p><br>
+In Gebieten mit Meridianstreifenübergang ist zusätzlich zur allgemein
+notwendigen Berücksichtigung der Reduktionsproblematik ein weiterer Schwerpunkt
+zu beachten:
+</p>
+<p>Ein VPR- bzw. David-Projekt kann immer nur in einem Streifen angelegt werden,
+das bedeutet der Projektnullpunkt befindet sich entweder im 4. bzw. 5. Streifen.
+Will man an die Messwerte bzw. Berechnungen die Reduktionen korrekt anbringen,
+so muss sichergestellt sein, dass auch die für den jeweiligen Streifen
+richtigen Reduktionsparameter/Netzkonstanten verwendet werden. Bei Verwendung
+falscher Reduktionsparameter/Netzkonstanten kann sich dies u. U. stark
+verfälschend auf das jeweilige Ergebnis auswirken.
+</p>
+<p><br>
+<b><u>In Kurzform - es könnte folgende Situation bestehen:</u></b>
+</p>
+<ul>
+  <li>ein Landkreis befindet sich teils in einem teils in einem anderen
+Meridianstreifen</li>
+  <li> bzgl. der Netzkonstanten ist nur ein Initialisierungsblock
+für beide Streifen definiert&nbsp;<br>
+    --&gt; Folge: für Berechnungen in einem der beiden Streifen
+werden ggf. fehlerhafte Netzkonstanten verwendet</li>
+</ul>
+<p>Entspricht dies nicht der gewünschten Situation, so gibt es 2 Möglichkeiten
+zur Abhilfe:</p>
+<p><br>
+<b><u>Möglichkeit 1:</u></b></p>
+<ul>
+  <li>in der zuständigen VPR-Initialisierungsdatei wird zu dem vorhandenen
+Initialisierungsblock (Netzparameter) eine Zweiter hinzugefügt</li>
+  <li>für jeden Streifen werden
+als Standardwerte die optimalen Netzkonstanten in den jeweiligen Block
+eingetragen</li>
+  <li>nach einem Projektstart wird festgelegt (bei neuen Projekten)
+bzw. erkannt (bei bestehenden Projekten), in welchem Streifen der
+Projektnullpunkt liegt (Anpassung der VPR-Startroutine nötig). Dem entsprechend
+wird bei Berechnungen der jeweilige Initialisierungsblock mit den dazugehörigen Netzkonstanten
+verwendet</li>
+</ul>
+<p><b><u>Möglichkeit 2:</u></b></p>
+<ul>
+  <li>es wird die <i> Datei der Nummerierungsbezirkshöhen</i> verwendet&nbsp;</li>
+  <li>auf diese
+Weise wird (sofern eingestellt) VPR-funktionsspezifisch entsprechend der lokalen
+Situation (Geländehöhe, Entfernung vom Mittelmeridian) reduziert (siehe:
+    &quot;<i>Individuelle Bestimmung der für die Reduktion anzuhaltenden
+    Netzkonstanten</i>&quot;)</li>
+  <li>bezüglich
+der G.-K.-Reduktion arbeitet VPR dann mit individuell ermittelten Rechtswerten
+(also unabhängig vom Meridianstreifen)</li>
+  <li>bezüglich der NN-Reduktion muss
+gewährleistet sein, dass der/die jeweilige/n Nummerierungsbezirk/e in der <i> Datei
+der Nummerierungsbezirkshöhen</i> vorhanden ist. Ist dies nicht der Fall, so wird
+der Standard-Höhenwert aus der VPR-Initialisierungsdatei verwendet.</li>
+</ul>
+<p>
+<br>
+</p>
+
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b>
+      <a href="reduktionen.htm">
+      <img border="0" src="../../../IMAGES/clipart/exit.gif" width="34" height="33"></a></b></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+</body>
+
+</html>

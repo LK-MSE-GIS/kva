@@ -1,0 +1,98 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="de">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Neue Seite 1</title>
+<link rel="stylesheet" type="text/css" href="../../STYLE_RP.CSS">
+</head>
+
+<body>
+
+<h2>Einstellungen in VPR bzgl. der korrekten Ermittlung der Fehlergrenzen bei der
+Polygonzugberechnung</h2>
+
+<h3><br>
+<br>
+Einstellungen in VPR (PRGINI.INI):</h3>
+<p><br>
+Die Zeilen mit den Kennungen FGR01 bis FGR18 (Fehlergrenzzeilen) enthalten
+die Parameter, mit denen die jeweiligen Fehlergrenzen berechnet werden und die
+Abkürzungen für die Fehler und Fehlergrenzen, die in den Ausschrieben
+verwendet werden. Sofern in der Fehlergrenzzeile ein Parameter nicht explizit
+gesetzt ist, wird er programmseits als 0 interpretiert. Fehlt die Abkürzung
+für den Fehler oder die Fehlergrenze, werden die programmseits die entsprechend
+festgelegten Standardwerte benutzt.</p>
+
+<h3><br>
+<font color="#993333"><br>
+Winkelabschlussfehler</font></h3>
+
+<p><br>
+</p>
+<ul>
+  <li>folgende Formel wird verwendet:</li>
+</ul>
+<blockquote>
+  <p>DW &lt;gon&gt; = ((F01+(F02/[Si])*(N-1)*(N**0.5)+(F03/S)*(N-1)*(N**0.5)+
+  (F13**2+((F14/[Si])*(N-1)*(N**0.5))**2)**0.5)/100)+ </p>
+  <p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+  &nbsp;&nbsp;&nbsp;&nbsp; (RHO*F11*((SAF**2+SEF**2)**0.5)/(SAF*SEF))+F12*2*(N**0.5)</p>
+</blockquote>
+<ul>
+  <li>damit den oben beschriebenen Festlegungen des AP-Erlasses entsprochen
+    wird, müssen bei den Fehlergrenzparametern folgende Einstellungen
+    vorgenommen werden:</li>
+</ul>
+<p><font color="#006600" size="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FGR05 F01=0.0 F02=0.0 F11=0.03 F12=0.001</font></p>
+
+<p>&nbsp;</p>
+
+<h3><font color="#993333">Längsfehler</font></h3>
+<p>&nbsp;</p>
+<ul>
+  <li>folgende Formel wird verwendet:</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DL &lt;m&gt; =
+F01+F02*S+F03*(S**0.5)+F11+ ((F12*(N-1))**2+(F13*((N-1)**0.5))**2+F14**2)**0.5</p>
+<ul>
+  <li>damit den oben beschriebenen Festlegungen des AP-Erlasses entsprochen
+    wird, müssen bei den Fehlergrenzparametern folgende Einstellungen
+    vorgenommen werden:</li>
+</ul>
+<p><font color="#006600" size="3">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FGR06 F01=0.03 F02=0.0 F03=0.0 F12=0.008 F13=0.012</font></p>
+<p>&nbsp;</p>
+<h3><font color="#993333">Querfehler</font></h3>
+<p>&nbsp;</p>
+<ul>
+  <li>folgende Formel wird verwendet:</li>
+</ul>
+<p>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DQ &lt;m&gt; =
+F01+F02*S+F03*N*(N**0.5)+ (F11**2+(F12*S/SAF)**2+(F15*S)**2+(F16**2)*(N**3))**0.5+</p>
+<p>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+F13*2*([s]/RHO)*((N/3)**0.5)+F14*(S**0.5)</p>
+<ul>
+  <li>damit den oben beschriebenen Festlegungen des AP-Erlasses entsprochen
+    wird, müssen bei den Fehlergrenzparametern folgende Einstellungen
+    vorgenommen werden:</li>
+</ul>
+<p><font color="#006600" size="3">&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FGR07 F01=0.0 F02=0.0 F03=0.0 F11=0.03 F12=0.03 F13=0.001</font></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table border="0" width="95%" cellspacing="0">
+  <tr>
+    <td width="100%" align=center><b><a href="../../Titelseite_GEOD.htm"><img border="0" src="../../IMAGES/clipart/exit.gif" width="34" height="33"></a></b></td>
+  </tr>
+</table>
+
+</body>
+
+</html>
