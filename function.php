@@ -1,12 +1,12 @@
 <?php
 
     $datum = getdate(time());
-    $year=$datum[year];
-    $month=$datum[mon];
-    $day=$datum[mday];
-    $hour=$datum[hours];
-    $min=$datum[minutes];
-    $sec=$datum[seconds];
+    $year=$datum["year"];
+    $month=$datum["mon"];
+    $day=$datum["mday"];
+    $hour=$datum["hours"];
+    $min=$datum["minutes"];
+    $sec=$datum["seconds"];
 
     if (strlen($month) == 1) $month='0'.$month;
     if (strlen($day) == 1) $day='0'.$day;

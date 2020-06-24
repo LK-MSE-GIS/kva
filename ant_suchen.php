@@ -24,9 +24,9 @@ nav_ant();
  <td colspan="2"> <select name="vermst_id">
  <?php
  $query="SELECT * FROM vermst WHERE liste='1' ORDER BY vermst";
- $result=mysql_query($query,$db_link);
+ $result=mysqli_query($db_link,$query);
 
- while($r=mysql_fetch_array($result))
+ while($r=mysqli_fetch_array($result))
    {
    echo "<option value=\"$r[vermst_id]\">$r[vermst]</option>\n";
    }
@@ -36,9 +36,9 @@ nav_ant();
  <td colspan="2"> <select name="vermart_id">
  <?php
  $query="SELECT * FROM vermart ORDER BY vermart";
- $result=mysql_query($query,$db_link);
+ $result=mysqli_query($db_link,$query);
 
- while($r=mysql_fetch_array($result))
+ while($r=mysqli_fetch_array($result))
    {
    echo "<option value=\"$r[vermart_id]\">$r[vermart]</option>\n";
    }
@@ -57,9 +57,9 @@ nav_ant();
  <td> <select name="gemark_id">
  <?php
  $query="SELECT * FROM gemarkung ORDER BY gemarkung";
- $result=mysql_query($query,$db_link);
+ $result=mysqli_query($db_link,$query);
 
- while($r=mysql_fetch_array($result))
+ while($r=mysqli_fetch_array($result))
    {
    echo "<option value=\"$r[gemark_id]\">$r[gemarkung]</option>\n";
    }
@@ -86,9 +86,9 @@ nav_ant();
  <td><select name="aktort_id">
  <?php
  $query="SELECT * FROM aktort ORDER BY aktort_id";
- $result=mysql_query($query,$db_link);
+ $result=mysqli_query($db_link,$query);
 
- while($r=mysql_fetch_array($result))
+ while($r=mysqli_fetch_array($result))
    {
    echo "<option value=\"$r[aktort_id]\">$r[aktort]</option>\n";
    }
