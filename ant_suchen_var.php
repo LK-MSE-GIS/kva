@@ -227,7 +227,7 @@ if($args>0)
 {
  $searchquery="update ant_search set query=\"$query\",tabtext='$tabtext',datart='$datart',gemark_id='$gemark_id',flur_id='$flur'  where mitarb_id='$mitarb_id';";
 
- mysql_query($searchquery) OR DIE ("Der Eintrag konnte nicht angelegt werden...");
+ mysqli_query($db_link,$searchquery) OR DIE ("Der Eintrag konnte nicht angelegt werden...");
 
 
 }
