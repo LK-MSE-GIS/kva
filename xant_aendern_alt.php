@@ -34,7 +34,7 @@ echo "<div class=\"ausgabe_bereich\" style=\"font-family:Arial; font-size: 10pt;
   <input type=hidden name=\"what\" value=\"edit\">
   <input type=hidden name=\"id\" value=$id>
   <input type=hidden name=\"status\" value=$status>
-	<form action=\"xant_umaendern_main.php\" method=\"post\" target=\"\">
+<form action=\"xant_umaendern_main.php\" method=\"post\" target=\"\">
   <table class=\"alter_eintrag_table\" border=\"0\" >
   <tr style=\"font-weight: bold\">
    <td> alten Antrag bearbeiten</td>
@@ -53,8 +53,8 @@ echo "<div class=\"ausgabe_bereich\" style=\"font-family:Arial; font-size: 10pt;
    <td>Datum</td>
    <td></td>
    </tr>
-   <tr>
    
+   <tr>
    <td> 
 		<select name=\"vermst_id\">";
 
