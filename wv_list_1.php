@@ -15,7 +15,7 @@ wv_navi();
 
 <div align="center">
 
-<h2>Werkvertr‰ge (bereit zur ‹bernahme)</h2>
+<h2>Werkvertr√§ge (bereit zur √úbernahme)</h2>
 
 <?php
 
@@ -35,7 +35,7 @@ wv_navi();
 <table>
 <tr>
 <td width="150">Bezeichnung</td>
-<td width="150">÷bVI</td>
+<td width="150">√ñbVI</td>
 <td width="150">Datum</td>
 <td width="200">Status</td>
 </tr>
@@ -68,13 +68,13 @@ for ($i=1;$i<=$count;$i++)
      <td>",$wv[$i][vermessungsstelle],"</td>
      <td>",$wv[$i][abgabe],"</td>
      <td>";
-     if ($wv[$i][status] == '1') echo "bereit zur ‹bernahme";
-     if ($wv[$i][status] == '2') echo "ALB-‹bernahme";
+     if ($wv[$i][status] == '1') echo "bereit zur √úbernahme";
+     if ($wv[$i][status] == '2') echo "ALB-√úbernahme";
      if ($wv[$i][status] == '0') echo "bei Verm.-Stelle";
      if ($wv[$i][status] == '3') echo "abgeschlossen";
      
      echo "</td>";
-     if ((strpos($abteilung,"wv") > -1) OR (strpos($abteilung,"adm") > -1)) echo "<td><a href=\"wv_edit.php?id=$id\">Status ‰ndern</a>
+     if ((strpos($abteilung,"wv") > -1) OR (strpos($abteilung,"adm") > -1)) echo "<td><a href=\"wv_edit.php?id=$id\">Status √§ndern</a>
      </td><td>|</td>";
      echo "<td><a href=\"$link \" target=\"about_blank\">Zur Karte</a>
      </td>";

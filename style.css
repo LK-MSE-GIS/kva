@@ -1,0 +1,62 @@
+.ueberschrift_gesamt{
+	height: 8%;
+	text-align: center;
+	padding: 5%;
+	color: white;
+}
+
+.ueberschrift_logo{
+	width: 20%;
+	float:right;
+	
+}
+
+.ueberschrift{
+	width: 80%;
+	float:left;
+	text-align: left;
+	margin-top:5%;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 15px;
+	color: white;
+	
+}
+
+.button_left{
+	width: 130px;
+	border-radius: 25px;
+	background-color: rgba(255,99,71,1);
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: white;
+}
+
+.button_left:hover{
+	width: 130px;
+	border-radius: 25px;
+	background-color: rgb(255,145,125);
+	font-size: 15px;
+	font-weight: bold;
+	color: white;
+}
+
+.button_link{
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	font-style: none;
+	color: white;
+}
+
+body {
+	background-color: rgb(0,96,133);
+}
+
+.angaben{
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 15px;
+	color: white;
+}

@@ -17,16 +17,16 @@ $highlight=$_GET["highlight"];
 
 head_flur();
 nav_flur("kvwmap");
-nachweis_kopf($id,$dbname);
+nachweis_kopf($id,$db_link);
 
 
 $query="SELECT ID,gemkg_id,flur_id FROM flur WHERE ID=$id";
-$result=mysql_query($query);
-$r=mysql_fetch_array($result);
+$result=mysqli_query($db_link,$query);
+$r=mysqli_fetch_array($result);
 
 
-$gemarkung=$r[gemkg_id];
-$flur=$r[flur_id];
+$gemarkung=$r["gemkg_id"];
+$flur=$r["flur_id"];
 
 while (strlen($flur) < 3)
   {
@@ -76,10 +76,10 @@ $color="#FCFCFC";
 for ($i=1;$i<=$count;$i++)
     {
      $nachweis_id=$nachweis[$i][nachweis_id];
-     if ($nachweis[$i][art] == '100') $art="FFR";
-     if ($nachweis[$i][art] == '010') $art="KVZ";
-     if ($nachweis[$i][art] == '001') $art="GN";
-     if ($nachweis[$i][art] == '111') 
+     if ($nachweis[$i]["art"] == '100') $art="FFR";
+     if ($nachweis[$i]["art"] == '010') $art="KVZ";
+     if ($nachweis[$i]["art"] == '001') $art="GN";
+     if ($nachweis[$i]["art"] == '111') 
          {
            $art2=$nachweis[$i][dokumentart_id];
                   if ($art2 == '124') $art= "Winkelbuch";
@@ -96,7 +96,7 @@ for ($i=1;$i<=$count;$i++)
 				  if ($art2 == '134') $art= "Flurkarte (hist.)";
          }
   
-    $rissnummer=$nachweis[$i][rissnummer];
+    $rissnummer=$nachweis[$i]["rissnummer"];
     while (strlen($rissnummer) < 8)
     {
       $rissnummer="0".$rissnummer;
@@ -111,16 +111,16 @@ for ($i=1;$i<=$count;$i++)
          if ($nachweis_id == $highlight) $color = '#E269A9';
             else $color= '#FFFFFF';
          echo "<tr bgcolor=$color style=\"font-family:Arial; font-size: 10pt; font-weight: italic\">
-     <td><a name=\"$nachweis_id\"><b>",$nachweis[$i][rissnummer],"</b></a>";
-	 if ($nachweis[$i][gueltigkeit] == '0') echo " **";
+     <td><a name=\"$nachweis_id\"><b>",$nachweis[$i]["rissnummer"],"</b></a>";
+	 if ($nachweis[$i]["gueltigkeit"] == '0') echo " **";
 	 echo "</td>
-     <td>",$nachweis[$i][blattnummer],"</td>
-     <td>",get_antrag($nachweis[$i][flurid],$nachweis[$i][rissnummer],$dbname),"</td>
-     <td><small>",$nachweis[$i][flurid],"</td>
+     <td>",$nachweis[$i]["blattnummer"],"</td>
+     <td>",get_antrag($nachweis[$i]["flurid"],$nachweis[$i]["rissnummer"],$db_link),"</td>
+     <td><small>",$nachweis[$i]["flurid"],"</td>
      <td><small>",$art,"</td>
-     <td>",$nachweis[$i][format],"</td>
-     <td>",$nachweis[$i][name],"</td>
-     <td>",$nachweis[$i][datum],"</td>
+     <td>",$nachweis[$i]["format"],"</td>
+     <td>",$nachweis[$i]["name"],"</td>
+     <td>",$nachweis[$i]["datum"],"</td>
     <td><a href=\"nachweise_anzeigen.php?nachweis_id=$nachweis_id&flur_id=$id&wohin=gemarkung&sort=$sortierfeld\"><img src=\"images/buttons/dok.png\" width=20 border=0 alt=\"Nachweis anzeigen\"></a></td>
     <td><a href=\"nachweis_history.php?id=$id&nachweis_id=$nachweis_id\"><img src=\"images/buttons/s_info.png\" width=10 border=0 alt=\"Historie ansehen\"></a></td>
     

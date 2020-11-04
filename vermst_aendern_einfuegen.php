@@ -31,7 +31,7 @@ $query="UPDATE vermst
                WHERE vermst_id='$vermst_id';";
 
 
-mysql_query($query) OR DIE ("Die &Auml;nderung konnte nicht durchgef&uuml;hrt werden...");
+mysqli_query($db_link,$query) OR DIE ("Die &Auml;nderung konnte nicht durchgef&uuml;hrt werden...");
 
 
 echo "<p align=center>";

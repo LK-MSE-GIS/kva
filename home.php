@@ -1,6 +1,10 @@
 <?php
     include("connect.php");
     include("connect_geobasis.php");
+	include("function.php");
+	
+xhead_home();
+xmain_nav();
 
     $datum = getdate(time());
     $year=$datum['year'];
@@ -40,13 +44,14 @@
 <body text="#000000" bgcolor="#FFFFFF" link="#FF0000" alink="#FF0000" vlink="#FF0000">
 
 <font face="Arial">
-<hr>
+
+<div class="anzeige_bereich">
+
 <table>
 <tr>
 <td align="left">&nbsp;<img src="images/mueritz.jpg" alt="" border="0" width="150">&nbsp;</td><td ><font size="+2"><?php echo $wochentag;  echo "<br> ",$print_datum; ?></font></td><td align="left">&nbsp;<img src="images/tiefwarensee.jpg" alt="" border="0" width="550"></td>
 </tr>
 </table>
-<hr>
 <table>
 <tr>
 <td width="300" valign="top">
@@ -136,6 +141,6 @@ if ($bild_id < $last_pic) echo "<a href=\"home.php?bild_id=$nachfolger\"><img sr
 </tr>
 
 </table>
-
+</div>
 </body>
 </html>

@@ -33,6 +33,7 @@ function head_vermst()
   echo " <html>
   <head>
   <meta http-equiv=\"pragma\" content=\"nocache\">
+  <link rel=\"stylesheet\" type=\"text/css\" href=\"style2.css\" media=\"screen\" />
   <title>
     Vermessungsstellen
   </title>
@@ -58,15 +59,12 @@ function head_order()
 
 function nav_vermst()
   {
- echo "<table width=\"100%\" border=\"0\">
-<tr style=\"font-family:Arial; font-size: 12pt; font-weight: bold\">
- <td> [ <a href=\"vermst_auflistung.php\">Auflistung</a>]
-      [ <a href=\"vermst_eintrag.php\">Neuer Eintrag</a>]
-      [ <a href=\"ant_suchen.php\">Antragsverwaltung</a>]
-
-</tr>
-</table>
-<hr>";
+ echo "
+<div class=\"unternav\">
+ <a class=\"unternav_button\" href=\"xvermst_auflistung.php\">Auflistung</a>
+ <a class=\"unternav_button\" href=\"xvermst_eintrag.php\">Neuer Eintrag</a>
+ <a class=\"unternav_button\" href=\"xant_suchen.php\">Antragsverwaltung</a>
+</div>";
 }
 
 function nav_orders()
@@ -79,6 +77,60 @@ function nav_orders()
 </tr>
 </table>
 <hr>";
+}
+
+
+function xhead_home()
+ {
+  echo " <html>
+  <head>
+  <meta http-equiv=\"pragma\" content=\"nocache\">
+  <link rel=\"stylesheet\" type=\"text/css\" href=\"style_x_home.css\" media=\"screen\" />
+  <title>
+    Antragsdatenbank Katasteramt
+  </title>
+  </head>
+
+  <body bgcolor=\"#FCFCFC\">";
+}
+
+
+function xmain_nav()
+  {
+ echo "
+<div class=\"obernav\">
+	  <a href=\"index.php\"><img src=\"images/neues_logo_mse.jpg\" width=\"300\"  border=\"0\"></a>
+      <a class=\"obernav_button\" href=\"xant_suchen.php\">AntrÃ¤ge</a>
+      <a class=\"obernav_button\" href=\"xflur_suchen.php\">Fluren</a>
+      <a class=\"obernav_button\" href=\"xalte_punkte_start.php\">alte Punkte</a>
+	  <a class=\"obernav_button\" href=\"xvermst_auflistung.php\">Verm.-Stellen</a>
+</div>";
+}
+
+function xhead_ant()
+ {
+  echo " <html>
+  <head>
+  <meta http-equiv=\"pragma\" content=\"nocache\">
+  <link rel=\"stylesheet\" type=\"text/css\" href=\"style_xant_suchen.css\" media=\"screen\" />
+  <title>
+    Antragsdatenbank Katasteramt
+  </title>
+  </head>
+
+  <body bgcolor=\"#FCFCFC\">";
+}
+
+function xnav_ant()
+  {
+ echo "
+<div class=\"unternav\">
+	  <a class=\"unternav_button\" href=\"xant_suchen.php\">Suche</a>
+      <a class=\"unternav_button\" href=\"xant_eintrag_hist.php\">Alter Eintrag</a>
+      <a class=\"unternav_button\" href=\"xant_status.php\">&Uuml;bersicht</a>
+      <a class=\"unternav_button\" href=\"xvermst_auflistung.php\">Verm.-st.</a>
+      <a class=\"unternav_button\" href=\"xant_statistik_quest.php\">Statistik</a>
+</div>";
 }
 
 function head_ant()
@@ -111,75 +163,78 @@ function nav_ant()
 <hr>";
 }
 
-function nav_aendern($id,$dbname,$page,$status)
+
+function nav_aendern($id,$db_link,$page,$status)
  {
 
   $query="SELECT o.*, x.* FROM antrag as o, antrag_extra as x WHERE o.id=$id AND o.id=x.id";
-  $result=mysql_query($query);
-  $r=mysql_fetch_array($result);
+  $result=mysqli_query($db_link,$query);
+  $r=mysqli_fetch_array($result);
 
-  echo" <table border=\"0\" >
+  echo"<div class=\"ausgabe_bereich\">
+  <table border=\"0\" >
   <tr style=\"font-family:MS Sans Serif; font-size: 10pt; font-weight: normal\">
 
-  <td><a href=\"ant_searchlist.php?page=$page&highlight=$id&status=$status\">Zurück</a>&nbsp;&nbsp;</td>";
+  <td><a class=\"nav_aendern\" href=\"xant_searchlist.php?page=$page&highlight=$id&status=$status\">ZurÃ¼ck</a>&nbsp;&nbsp;</td>";
 
-  if (($r[vermst_id]>0) AND ($r[vermart_id] !=0) AND ($r[gemark_id_1] > 0)) echo "<td>";
+  if (($r['vermst_id']>0) AND ($r['vermart_id'] !=0) AND ($r['gemark_id_1'] > 0)) echo "<td>";
   else echo "<td bgcolor=#EEACC4>";
-  echo "<a href=\"ant_aendern.php?id=$id&page=$page&status=$status\">Grunddaten</a>&nbsp;&nbsp;</td>";
+  echo "<a class=\"nav_aendern\" href=\"xant_aendern.php?id=$id&page=$page&status=$status\">Grunddaten</a>&nbsp;&nbsp;</td>";
 
   
-  if ($r[vorb_ja_nein]>0) echo "<td>";
+  if ($r['vorb_ja_nein']>0) echo "<td>";
   else echo "<td bgcolor=#EEACC4>";
-  echo "<a href=\"ant_aendern_vorb.php?id=$id&page=$page&status=$status\">Vorbereitung</a>&nbsp;&nbsp;</td>";
+  echo "<a class=\"nav_aendern\" href=\"xant_aendern_vorb.php?id=$id&page=$page&status=$status\">Vorbereitung</a>&nbsp;&nbsp;</td>";
 
 
-  if (($r[me_ja_nein]>0) OR ($r[vermart_id]=='10')) echo "<td>";
+  if (($r['me_ja_nein']>0) OR ($r['vermart_id']=='10')) echo "<td>";
   else echo "<td bgcolor=#EEACC4>";
-  echo "<a href=\"ant_aendern_me.php?id=$id&page=$page&status=$status\">Messeingang</a>&nbsp;&nbsp;</td>";
+  echo "<a class=\"nav_aendern\" href=\"xant_aendern_me.php?id=$id&page=$page&status=$status\">Messeingang</a>&nbsp;&nbsp;</td>";
   
-  if (($r[alb_ja_nein]>0) AND ($r[alk_ja_nein]>0) AND ($r[ueb_ja_nein]>0)OR ($r[vermart_id]=='10')) echo "<td>";
+  if (($r['alb_ja_nein']>0) AND ($r['alk_ja_nein']>0) AND ($r['ueb_ja_nein']>0)OR ($r['vermart_id']=='10')) echo "<td>";
   else echo "<td bgcolor=#EEACC4>";
-  echo "<a href=\"ant_aendern_uebernahme.php?id=$id&page=$page&status=$status\">Übernahme</a>&nbsp;&nbsp;</td>";
+  echo "<a class=\"nav_aendern\" href=\"xant_aendern_uebernahme.php?id=$id&page=$page&status=$status\">Ãœbernahme</a>&nbsp;&nbsp;</td>";
 
-  if (($r[re_ja_nein]>0) OR ($r[vermart_id]=='10')) echo "<td>";
+  if (($r['re_ja_nein']>0) OR ($r['vermart_id']=='10')) echo "<td>";
   else echo "<td bgcolor=#EEACC4>";
-  echo "<a href=\"ant_aendern_rech.php?id=$id&page=$page&status=$status\">Rechnungen</a>&nbsp;&nbsp;</td>";
+  echo "<a class=\"nav_aendern\" href=\"xant_aendern_rech.php?id=$id&page=$page&status=$status\">Rechnungen</a>&nbsp;&nbsp;</td>";
   
 
-  echo "<td><a href=\"ant_nachweise.php?id=$id&page=$page&status=$status&alt=no\">Nachweise</a>&nbsp;&nbsp;</td>";
+  echo "<td><a class=\"nav_aendern\" href=\"xant_nachweise.php?id=$id&page=$page&status=$status&alt=no\">Nachweise</a>&nbsp;&nbsp;</td>";
 
-  if ($r[rechts] != '0' AND $r[hoch] != '0')
+  if ($r['rechts'] != '0' AND $r['hoch'] != '0')
     {
 
-     echo " <td><a href=\"ant_map.php?rechts=$r[rechts]&hoch=$r[hoch]&range=200&id=$id&page=$page&status=$status\" >Karte</a></td>";
+     echo " <td><a class=\"nav_aendern\" href=\"xant_map.php?rechts=$r[rechts]&hoch=$r[hoch]&range=200&id=$id&page=$page&status=$status\" >Karte</a></td>";
      }
 
-  echo "  </tr></table><br>";
+  echo "  </tr></table></div><br>";
 }
 
 
-function nav_aendern_alt($id,$dbname,$page,$status)
+function nav_aendern_alt($id,$db_link,$page,$status)
  {
 
   $query="SELECT * FROM antrag  WHERE id=$id ";
-  $result=mysql_query($query);
-  $r=mysql_fetch_array($result);
+  $result=mysqli_query($db_link,$query);
+  $r=mysqli_fetch_array($result);
 
-  echo" <table border=\"0\" >
-  <tr style=\"font-family:MS Sans Serif; font-size: 10pt; font-weight: normal\">
+  echo"<div class=\"ausgabe_bereich\">
+  <table border=\"0\" >
+  <tr>
 
-  <td><a href=\"ant_searchlist.php?page=$page&highlight=$id&status=$status\">Zurück</a>&nbsp;&nbsp;</td>";
+  <td><a class=\"nav_aendern\" href=\"xant_searchlist.php?page=$page&highlight=$id&status=$status\">ZurÃ¼ck</a>&nbsp;&nbsp;</td>";
 
-  if (($r[vermst_id]>0) AND ($r[gemark_id_1] > 0)) echo "<td>";
+  if (($r['vermst_id']>0) AND ($r['gemark_id_1'] > 0)) echo "<td>";
   else echo "<td bgcolor=#EEACC4>";
-  echo "<a href=\"ant_aendern_alt.php?id=$id&page=$page&status=$status\">Grunddaten</a>&nbsp;&nbsp;</td>";
+  echo "<a class=\"nav_aendern\" href=\"xant_aendern_alt.php?id=$id&page=$page&status=$status\">Grunddaten</a>&nbsp;&nbsp;</td>";
 
-  echo "<td><a href=\"ant_nachweise.php?id=$id&page=$page&status=$status\">Nachweise</a>&nbsp;&nbsp;</td>";
+  echo "<td><a class=\"nav_aendern\" href=\"xant_nachweise.php?id=$id&page=$page&status=$status\">Nachweise</a>&nbsp;&nbsp;</td>";
 
 
   
   
-  echo "  </tr></table><br>";
+  echo "  </tr></table></div><br>";
 }
 
 
@@ -199,21 +254,19 @@ function head_flur()
 
 function nav_flur($direction)
   {
-  if ($direction == "kvwmap") $dirlink="flur_search_kvwmap.php";
-  if ($direction == "alkgrund") $dirlink="flur_search_alkgrund.php";
-  if ($direction == "geb") $dirlink="flur_search_geb.php";
-  if ($direction == "strha") $dirlink="flur_search_strha.php";
-  if ($direction == "alkis") $dirlink="flur_search_alkis.php";
-  if ($direction == "bos") $dirlink="flur_search_bos.php";
+  if ($direction == "kvwmap") $dirlink="xflur_search_kvwmap.php";
+  if ($direction == "alkgrund") $dirlink="xflur_search_alkgrund.php";
+  if ($direction == "geb") $dirlink="xflur_search_geb.php";
+  if ($direction == "strha") $dirlink="xflur_search_strha.php";
+  if ($direction == "alkis") $dirlink="xflur_search_alkis.php";
+  if ($direction == "bos") $dirlink="xflur_search_bos.php";
 
- echo "<table width=\"100%\" border=\"0\">
-<tr>
- <td style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"> [ <a href=\"flur_suchen.php\">Flur suchen</a>]&nbsp;[ <a href=$dirlink>Flur suchen nach Themen </a>]&nbsp;[ <a href=\"flur_statistik.php?new=nein\">Statistik</a>]&nbsp;
-[ <a href=\"ant_suchen.php\">Antragsdatenbank</a>]
-
-</tr>
-</table>
-<hr>";
+ echo "	<div class=\"unternav\">
+					<a class=\"unternav_button\" href=\"xflur_suchen.php\">Flur suchen</a>
+					<a class=\"unternav_button\" href=$dirlink>Flur suchen nach Themen </a>
+					<a class=\"unternav_button\" href=\"xflur_statistik.php?new=nein\">Statistik</a>
+					<a class=\"unternav_button\" href=\"xant_suchen.php\">Antragsdatenbank</a>
+		</div>";
 }
 
 
@@ -231,34 +284,34 @@ function bottom()
   echo "</body> </html>";
   }
 
-function abhaken($flurid,$dbn,$width,$nbrkspc)
+function abhaken($flurid,$db_link,$width,$nbrkspc)
 {
 
 $query4="SELECT * FROM flur WHERE ID=$flurid";
-     $result4=mysql_query($query4);
-     $r4=mysql_fetch_array($result4);
+     $result4=mysqli_query($db_link,$query4);
+     $r4=mysqli_fetch_array($result4);
 
  echo "<tr><td>&nbsp;</td><td>&nbsp;</td><td align=center>";
- if ($r4[db_datum]>'0000-00-00') plus();
+ if ($r4["db_datum"]>'0000-00-00') plus();
   else minus();
   echo "<td align=center>";
-if (($r4[strha_alk]=='1') AND ($r4[strha_alb]=='1') OR ($r4[geb]=='0')) plus();
-  else minus();
-  if ($nbrkspc=='1') echo "<td>&nbsp;</td>";
-  echo "<td align=center>";
-   if (($r4[altgeb_db_dat]>'0000-00-00') AND ($r4[geb_abschl_dat]>'0000-00-00') OR ($r4[geb]=='0'))echo plus();
+if (($r4["strha_alk"]=='1') AND ($r4["strha_alb"]=='1') OR ($r4["geb"]=='0')) plus();
   else minus();
   if ($nbrkspc=='1') echo "<td>&nbsp;</td>";
   echo "<td align=center>";
-   if ((($r4[alkis_feld_stat]=='1') AND ($r4[alkis_felddb_dat]!='0000-00-00')) AND ($r4[alkis_albalk_stat]=='1'))echo plus();
+   if (($r4["altgeb_db_dat"]>'0000-00-00') AND ($r4["geb_abschl_dat"]>'0000-00-00') OR ($r4["geb"]=='0'))echo plus();
   else minus();
   if ($nbrkspc=='1') echo "<td>&nbsp;</td>";
   echo "<td align=center>";
-   if ((($r4[bos_exists]=='1') AND ($r4[bos_nach_alk] !='0000-00-00')) OR  $r4[bos_exists]=='0') plus();
+   if ((($r4["alkis_feld_stat"]=='1') AND ($r4["alkis_felddb_dat"]!='0000-00-00')) AND ($r4["alkis_albalk_stat"]=='1'))echo plus();
   else minus();
   if ($nbrkspc=='1') echo "<td>&nbsp;</td>";
   echo "<td align=center>";
- if (($r4[all_riss_dat]>'0000-00-00') AND ($r4[gesc_riss_dat]>'0000-00-00') AND ($r4[gesc_riss_kvz]=='1') AND ($r4[all_riss_kvz]=='1') AND ($r4[anlagen_dat]>'0000-00-00') AND ($r4[georef_dat]>'0000-00-00') ) plus();
+   if ((($r4["bos_exists"]=='1') AND ($r4["bos_nach_alk"] !='0000-00-00')) OR  $r4["bos_exists"]=='0') plus();
+  else minus();
+  if ($nbrkspc=='1') echo "<td>&nbsp;</td>";
+  echo "<td align=center>";
+ if (($r4["all_riss_dat"]>'0000-00-00') AND ($r4["gesc_riss_dat"]>'0000-00-00') AND ($r4["gesc_riss_kvz"]=='1') AND ($r4["all_riss_kvz"]=='1') AND ($r4["anlagen_dat"]>'0000-00-00') AND ($r4["georef_dat"]>'0000-00-00') ) plus();
   else minus();
   if ($nbrkspc=='1') echo "<td>&nbsp;</td>";
   echo "</td></tr></table>";
@@ -266,13 +319,13 @@ if (($r4[strha_alk]=='1') AND ($r4[strha_alb]=='1') OR ($r4[geb]=='0')) plus();
 
 
 
- function flur_kopf($flurid,$dbname)
+ function flur_kopf($flurid,$db_link)
  {
  $query="SELECT * FROM flur WHERE ID=$flurid";
- $result=mysql_query($query);
- $r=mysql_fetch_array($result);
+ $result=mysqli_query($db_link,$query);
+ $r=mysqli_fetch_array($result);
  $farbe="#76AAC9";
- if ($r[hist] == 1) $farbe="#FF0000";
+ if ($r["hist"] == 1) $farbe="#FF0000";
  echo "<div align=\"center\"><table border=\"0\">
 <tr  style=\"font-family:Arial; font-size: 10pt; font-weight: bold\" bgcolor=$farbe>
  <td width=\"120\"> </td>
@@ -281,49 +334,49 @@ if (($r4[strha_alk]=='1') AND ($r4[strha_alb]=='1') OR ($r4[geb]=='0')) plus();
  <td > Flur</td>
  <td> Entstehung der ALK</td>
  </tr>";
- if ($r[hist] == 1)    
+ if ($r["hist"] == 1)    
     echo "<tr><td colspan=5><marquee>Flur ist historisch !!</td></tr>";
 echo "<tr style=\"font-family:Arial; font-size: 12pt; font-weight: bold\">
-<td valign=center><form action=\"flur_suchen_id.php\" method=POST>
+<td valign=center><form action=\"xflur_suchen_id.php\" method=POST>
     <input type=\"hidden\" name=\"gemkg_id2\" value=\"$r[gemkg_id]\">
-    <input type=\"submit\" value=\"Zurück\">
+    <input type=\"submit\" value=\"ZurÃ¼ck\">
     </form></td>
 <td>";
 $query4="SELECT * FROM gemarkung WHERE gemark_id=$r[gemkg_id]";
-     $result4=mysql_query($query4);
-     $r4=mysql_fetch_array($result4);
+     $result4=mysqli_query($db_link,$query4);
+     $r4=mysqli_fetch_array($result4);
      echo"$r4[gemarkung]
 </td>
 <td>$r[gemkg_id]</td>
 <td style=\"font-family:Arial; font-size: 24pt; font-weight: bold\">$r[flur_id]</td>";
-if ($r[vertrag_id]=='0')
+if ($r["vertrag_id"]=='0')
   {
    echo "<td>$r[vertrag]</td></tr>";
   }
   else
   {
    $vquery="SELECT * FROM vertrag WHERE vertrag_id=$r[vertrag_id]";
-   $vresult=mysql_query($vquery);
-   $rv=mysql_fetch_array($vresult);
+   $vresult=mysqli_query($db_link,$vquery);
+   $rv=mysqli_fetch_array($vresult);
    echo "<td>$rv[name]<br>";
    $v2query="SELECT * FROM vermst WHERE vermst_id=$rv[vermst_id]";
-   $v2result=mysql_query($v2query);
-   $rv2=mysql_fetch_array($v2result);
+   $v2result=mysqli_query($db_link,$v2query);
+   $rv2=mysqli_fetch_array($v2result);
    echo"$rv2[vermst]</td></tr>";
   }
-if ($r[bov]>='1')
+if ($r["bov"]>='1')
   {
   $bovquery="SELECT * FROM bov WHERE bov_id=$r[bov]";
-  $bovresult=mysql_query($bovquery);
-  $bovr=mysql_fetch_array($bovresult);
+  $bovresult=mysqli_query($db_link,$bovquery);
+  $bovr=mysqli_fetch_array($bovresult);
   echo "<tr><td style=\"font-family:Arial; font-size: 8pt; font-weight: bold\" colspan=\"4\">BOV: $bovr[Name]&nbsp;";
-  if ($r[bov_teilw]=='1') echo "(teilweise)";
+  if ($r["bov_teilw"]=='1') echo "(teilweise)";
   echo ",&nbsp;Ausf&uuml;hrende Stelle: $bovr[ausf_vermst]";
-  if ($bovr[busy]=='0') echo ", Verfahren ist abgeschlossen";
-  if ($bovr[busy]=='1') echo ", Verfahren l&auml;uft noch";
+  if ($bovr["busy"]=='0') echo ", Verfahren ist abgeschlossen";
+  if ($bovr["busy"]=='1') echo ", Verfahren l&auml;uft noch";
   echo "</td></tr>";
   }
-if ($r[geb]=='0') echo "<tr><td style=\"font-family:Arial; font-size: 8pt; font-weight: bold\">kein Geb&auml;udebestand</td></tr>";
+if ($r["geb"]=='0') echo "<tr><td style=\"font-family:Arial; font-size: 8pt; font-weight: bold\">kein Geb&auml;udebestand</td></tr>";
 
 echo "</table><br>";
 }
@@ -331,17 +384,17 @@ echo "</table><br>";
 function nachweis_kopf($flurid,$dbname)
  {
  $query="SELECT * FROM flur WHERE ID=$flurid";
- $result=mysql_query($query);
- $r=mysql_fetch_array($result);
+ $result=mysqli_query($db_link,$query);
+ $r=mysqli_fetch_array($result);
  echo "<div align=\"center\"><table border=\"0\">
 <tr  style=\"font-family:Arial; font-size: 14pt; font-weight: bold\">
  <td colspan=2>Nachweise in der Gemarkung: ";
  
 $query4="SELECT * FROM gemarkung WHERE gemark_id=$r[gemkg_id]";
-     $result4=mysql_query($query4);
-     $r4=mysql_fetch_array($result4);
+     $result4=mysqli_query($db_link,$query4);
+     $r4=mysqli_fetch_array($result4);
      echo"$r4[gemarkung]
-</td></tr><tr><td width=200 style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"><a href=\"nachweise.php?id=$flurid&sort=rissnummer\">zurück zur Flur ",$r[flur_id],"</td><td width=200 style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"><a href=\"document_check.php?gemkg=$r[gemkg_id]\" target=\"_blank\">Gemarkung prüfen</a></td></tr></table><br>";
+</td></tr><tr><td width=200 style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"><a href=\"nachweise.php?id=$flurid&sort=rissnummer\">zurÃ¼ck zur Flur ",$r[flur_id],"</td><td width=200 style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"><a href=\"document_check.php?gemkg=$r[gemkg_id]\" target=\"_blank\">Gemarkung prÃ¼fen</a></td></tr></table><br>";
 }
 
 
@@ -386,18 +439,18 @@ function navi_flur($what,$id)
    if ($what == 'nachweise')
    { echo "<img src=\"images/buttons/nachweise_red.gif\"  border=\"0\" width=\"100\">";}
    else
-   { echo "<a href=\"nachweise.php?id=$id&sort=rissnummer\"><img src=\"images/buttons/nachweise_gray.gif\"  border=\"0\" width=\"100\"></a></td>";}
+   { echo "<a href=\"xnachweise.php?id=$id&sort=rissnummer\"><img src=\"images/buttons/nachweise_gray.gif\"  border=\"0\" width=\"100\"></a></td>";}
    if ($what == 'fstn')
    { echo "<td><img src=\"images/buttons/flst_red.gif\"  border=\"0\" width=\"100\">";}
    else
-   { echo "<td><a href=\"flur_show_fstn.php?id=$id\"><img src=\"images/buttons/flst_gray.gif\"  border=\"0\" width=\"100\"></a></td>";}
+   { echo "<td><a href=\"xflur_show_fstn.php?id=$id\"><img src=\"images/buttons/flst_gray.gif\"  border=\"0\" width=\"100\"></a></td>";}
    if ($what == 'alk_grund')
    {
      echo "<td><img src=\"images/buttons/alk_grund_red.gif\"  border=\"0\" width=\"100\"></td>";
    }
    else
    {
-     echo "<td><a href=\"flur_edit_alkgrund.php?id=$id\"><img src=\"images/buttons/alk_grund_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+     echo "<td><a href=\"xflur_edit_alkgrund.php?id=$id\"><img src=\"images/buttons/alk_grund_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
    }
    if ($what == 'alk_strha')
    {
@@ -405,7 +458,7 @@ function navi_flur($what,$id)
    }
    else
    {
-     echo "<td><a href=\"flur_edit_strha.php?id=$id\"><img src=\"images/buttons/alk_strha_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+     echo "<td><a href=\"xflur_edit_strha.php?id=$id\"><img src=\"images/buttons/alk_strha_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
    }
    if ($what == 'alk_geb')
    {
@@ -413,7 +466,7 @@ function navi_flur($what,$id)
    }
    else
    {
-     echo "<td><a href=\"flur_edit_geb.php?id=$id\"><img src=\"images/buttons/alk_geb_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+     echo "<td><a href=\"xflur_edit_geb.php?id=$id\"><img src=\"images/buttons/alk_geb_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
    }
    if ($what == 'alkis')
    {
@@ -421,7 +474,7 @@ function navi_flur($what,$id)
    }
    else
    {
-     echo "<td><a href=\"flur_edit_alkis.php?id=$id\"><img src=\"images/buttons/alkis_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+     echo "<td><a href=\"xflur_edit_alkis.php?id=$id\"><img src=\"images/buttons/alkis_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
    }
    if ($what == 'bos')
    {
@@ -429,7 +482,7 @@ function navi_flur($what,$id)
    }
    else
    {
-     echo "<td><a href=\"flur_edit_bos.php?id=$id\"><img src=\"images/buttons/bos_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+     echo "<td><a href=\"xflur_edit_bos.php?id=$id\"><img src=\"images/buttons/bos_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
    }
    if ($what == 'kvwmap')
    {
@@ -437,7 +490,7 @@ function navi_flur($what,$id)
    }
    else
    {
-     echo "<td><a href=\"flur_edit_kvwmap.php?id=$id\"><img src=\"images/buttons/kvwmap_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+     echo "<td><a href=\"xflur_edit_kvwmap.php?id=$id\"><img src=\"images/buttons/kvwmap_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
    }
 
 echo "</tr></font>";
@@ -447,22 +500,22 @@ function navi_flur_search($what)
 {
 echo" <table border=\"0\"><tr>";
 if ($what == 'alkgrund') echo "<td><img src=\"images/buttons/alk_grund_red.gif\"  border=\"0\" width=\"100\"></td>";
- else echo "<td><a href=\"flur_search_alkgrund.php\"><img src=\"images/buttons/alk_grund_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+ else echo "<td><a href=\"xflur_search_alkgrund.php\"><img src=\"images/buttons/alk_grund_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
 
 if ($what == 'strha') echo "<td><img src=\"images/buttons/alk_strha_red.gif\"  border=\"0\" width=\"100\"></td>";
- else echo "<td><a href=\"flur_search_strha.php\"><img src=\"images/buttons/alk_strha_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+ else echo "<td><a href=\"xflur_search_strha.php\"><img src=\"images/buttons/alk_strha_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
 
 if ($what == 'geb') echo "<td><img src=\"images/buttons/alk_geb_red.gif\"  border=\"0\" width=\"100\"></td>";
- else echo "<td><a href=\"flur_search_geb.php\"><img src=\"images/buttons/alk_geb_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+ else echo "<td><a href=\"xflur_search_geb.php\"><img src=\"images/buttons/alk_geb_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
 
 if ($what == 'alkis') echo "<td><img src=\"images/buttons/alkis_red.gif\"  border=\"0\" width=\"100\"></td>";
- else echo "<td><a href=\"flur_search_alkis.php\"><img src=\"images/buttons/alkis_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+ else echo "<td><a href=\"xflur_search_alkis.php\"><img src=\"images/buttons/alkis_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
 
 if ($what == 'bos') echo "<td><img src=\"images/buttons/bos_red.gif\"  border=\"0\" width=\"100\"></td>";
- else echo "<td><a href=\"flur_search_bos.php\"><img src=\"images/buttons/bos_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+ else echo "<td><a href=\"xflur_search_bos.php\"><img src=\"images/buttons/bos_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
 
 if ($what == 'kvwmap') echo "<td><img src=\"images/buttons/kvwmap_red.gif\"  border=\"0\" width=\"100\"></td>";
- else echo "<td><a href=\"flur_search_kvwmap.php\"><img src=\"images/buttons/kvwmap_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
+ else echo "<td><a href=\"xflur_search_kvwmap.php\"><img src=\"images/buttons/kvwmap_gray.gif\"  border=\"0\" width=\"100\"></a></td>";
 
 echo "</tr></table>";
 
@@ -501,33 +554,33 @@ function landkreis($lk)
    }
 
 
- function get_gemark_name($gemark_id,$dbname)
+ function get_gemark_name($gemark_id,$db_link)
  {
  $query="SELECT * FROM gemarkung WHERE gemark_id='$gemark_id'";
- $result=mysql_query($query);
- $r=mysql_fetch_array($result);
- return $r[gemarkung];
+ $result=mysqli_query($db_link,$query);
+ $r=mysqli_fetch_array($result);
+ return $r["gemarkung"];
  }
 
 
-function get_antrag($flur_id,$rissnummer,$dbname)
+function get_antrag($flur_id,$rissnummer,$db_link)
  {
   $gemark_id=substr($flur_id,0,6);
    
  $query="SELECT a.number,a.year FROM risse2antrag as r, antrag as a WHERE r.gemark_id='$gemark_id' AND r.riss_id='$rissnummer' AND a.id = r.antrag_id";
- $result=mysql_query($query);
- $r=mysql_fetch_array($result);
- $az=$r[number]."/".substr($r[year],2,2);
+ $result=mysqli_query($db_link,$query);
+ $r=mysqli_fetch_array($result);
+ $az=$r["number"]."/".substr($r["year"],2,2);
  if (strlen($az) > 2) return $az;
    else return " ";
  }
 
 
- function get_last_riss($gemark_id,$dbname)
+ function get_last_riss($gemark_id,$db_link)
  {
  $query="SELECT last_riss FROM riss_nummer WHERE gemark_id='$gemark_id'";
- $result=mysql_query($query);
- $r=mysql_fetch_array($result);
+ $result=mysqli_query($db_link,$query);
+ $r=mysqli_fetch_array($result);
  return $r[0];
  }
 

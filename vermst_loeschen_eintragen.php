@@ -13,7 +13,7 @@ $query="DELETE FROM vermst WHERE vermst_id='$vermst_id';";
 
 echo $query,"<br>";
 
-mysql_query($query) OR DIE ("Der Eintrag konnte nicht gel&ouml;scht werden...");
+mysqli_query($db_link,$query) OR DIE ("Der Eintrag konnte nicht gel&ouml;scht werden...");
 
 
 echo "<p align=center>";

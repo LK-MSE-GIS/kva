@@ -15,18 +15,18 @@ $query="SELECT n.id as nachweis_id,n.flurid,n.rissnummer,n.blattnummer,nd.art,n.
 
 $result = $dbqueryp($connectp,$query);
 $r = $fetcharrayp($result);
-    $art=$r[art];
-    $rissnummer=$r[rissnummer];
+    $art=$r["art"];
+    $rissnummer=$r["rissnummer"];
 	$laenge=strlen($r['link_datei']);
     $dateiname=substr($r['link_datei'],24,$laenge-24);
     
-     $dname="docs/".$dateiname; 
+     $dname="https://geoport-lk-mse.de/kva/docs/".$dateiname; 
 
      if ($wohin == "gemarkung") $destination="nachweise_gem.php?id=$flur_id&sort=rissnummer&highlight=$nachweis_id&sort=$sort#".$nachweis_id;
 
      if ($wohin == "flur") $destination="nachweise.php?id=$flur_id&sort=rissnummer&highlight=$nachweis_id&sort=$sort#".$nachweis_id;
 
-     if ($wohin == "antrag") $destination="ant_nachweise.php?id=$antrag_id&page=$page&alt=$alt&status=$status";
+     if ($wohin == "antrag") $destination="xant_nachweise.php?id=$antrag_id&page=$page&alt=$alt&status=$status";
 
 echo "<table border=0><tr><td width=100 style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"><a href=$destination>Zurück</a></td>
 <td style=\"font-family:Arial; font-size: 10pt; font-weight: bold\" width=100>Nummer:</td>
@@ -40,14 +40,14 @@ echo "<table border=0><tr><td width=100 style=\"font-family:Arial; font-size: 10
 <td style=\"font-family:Arial; font-size: 10pt; font-weight: bold\">Datum:</td> 
 <td style=\"font-family:Arial; font-size: 10pt; font-weight: bold\"> $r[datum] </td>
 </tr>";
-if ($r[gueltigkeit] == '0') echo "<tr><td colspan=8 style=\"font-family:Arial; font-size: 12pt; font-weight: bold\">Dieses Dokument ist ungültig wegen eines übernommenen Flurneuordnungsverfahrens !</td></tr>";
+if ($r["gueltigkeit"] == '0') echo "<tr><td colspan=8 style=\"font-family:Arial; font-size: 12pt; font-weight: bold\">Dieses Dokument ist ungültig wegen eines übernommenen Flurneuordnungsverfahrens !</td></tr>";
 echo "</table><br><br>";
 
 
 
 echo "<a href=$dname> <b>hier</b> </a> klicken um den Nachweis anzzueigen</a><br><br>";
 $vb=explode('.',$dname);
-$vorschaubild=$vb[0].'_thumb.jpg';
+$vorschaubild=$vb[0].'.'.$vb[1].'_thumb.jpg';
 echo '<img src="',$vorschaubild,'">';
 
 ?>

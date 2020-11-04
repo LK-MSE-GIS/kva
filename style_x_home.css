@@ -1,0 +1,172 @@
+
+
+body {
+	background-color: white;
+}
+
+.obernav{
+	float: center;
+	text-align: center;
+	background-color: white;
+	font-size: 19px;
+	font-family: Arial;
+	font-weight: bold;
+	padding: 10px;
+	border-bottom: solid 10px rgb(241,202,0);
+}
+
+.obernav_button{
+	text-decoration: none;
+	margin-left: 1.5%;
+	color: rgb(140,140,140);
+	height: 10px;
+}
+
+.obernav_button:hover{
+	color: black;
+	border-bottom: solid 4px rgb(139,182,58);
+}
+
+
+.unternav{
+	float: center;
+	text-align: center;
+	background-color: rgb(200,200,200);
+	font-size: 15px;
+	font-family: Arial;
+	font-weight: bold;
+	padding: 6px;
+}
+
+.unternav_button{
+	text-decoration: none;
+	margin: 2%;
+	color: white;
+	height: 10px;
+}
+
+.unternav_button:hover{
+	color: black;
+}
+
+
+
+.angaben{
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 18px;
+	color: white;
+}
+
+h1 {
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 25px;
+	color: black;
+}
+
+.angaben_überschrift{
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 24px;
+	color: black;
+	padding-left:2%;
+}
+
+.antrags_beschriftung{
+	background-color: rgb(0,96,133);
+}
+
+table{
+	border-collapse: collapse;
+	border-width: 0px;
+	border-style: solid;
+	border-color: rgb(0,96,133);
+}
+
+
+.anzeige_bereich{
+	width:60%;
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.ausgabe_bereich{
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+input[type="text"]{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+}
+
+input[type="date"]{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+}
+
+input[type="submit"]{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+}
+
+input:hover[type="submit"]{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+	background-color: rgb(200,200,200);
+}
+
+input[type="reset"]{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+}
+
+input:hover[type="reset"]{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+	background-color: rgb(200,200,200);
+}
+
+select{
+	font-size: 20px;
+	padding: 4px 4px;
+	border-radius: 25px;
+	margin: 4px 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

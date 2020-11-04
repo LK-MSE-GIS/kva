@@ -62,15 +62,15 @@ echo "<table>
 $color="#FCFCFC";
 for ($i=1;$i<=$count;$i++)
     {
-     $nachweis_id_insert=$nachweis[$i][nachweis_id]+1;
-     $nachweis_id_update=$nachweis[$i][nachweis_id];
+     $nachweis_id_insert=$nachweis[$i]["nachweis_id"]+1;
+     $nachweis_id_update=$nachweis[$i]["nachweis_id"];
 
-     if ($nachweis[$i][art] == '100') $art="FFR";
-     if ($nachweis[$i][art] == '010') $art="KVZ";
-     if ($nachweis[$i][art] == '001') $art="GN";
-     if ($nachweis[$i][art] == '111') 
+     if ($nachweis[$i]["art"] == '100') $art="FFR";
+     if ($nachweis[$i]["art"] == '010') $art="KVZ";
+     if ($nachweis[$i]["art"] == '001') $art="GN";
+     if ($nachweis[$i]["art"] == '111') 
          {
-           $art2=$nachweis[$i][dokumentart_id];
+           $art2=$nachweis[$i]["dokumentart_id"];
                   if ($art2 == '124') $art= "Winkelbuch";
                   if ($art2 == '123') $art= "Polygonübersicht";
                   if ($art2 == '125') $art= "Liniennetzriss";
@@ -84,7 +84,7 @@ for ($i=1;$i<=$count;$i++)
                   if ($art2 == '133') $art= "Werkvertrag KVZ";
          }
   
-    $stammnr=$nachweis[$i][stammnr];
+    $stammnr=$nachweis[$i]["stammnr"];
     while (strlen($stammnr) < 8)
     {
       $stammnr="0".$stammnr;
@@ -92,15 +92,15 @@ for ($i=1;$i<=$count;$i++)
      $dname="/docs/".$nachweis[$i]['flurid']."/".$stammnr."/".$nachweis[$i]['link_datei']; 
      
          echo "<tr bgcolor=$color style=\"font-family:Arial; font-size: 10pt; font-weight: italic\">
-     <td><b>",$nachweis[$i][stammnr],"</b></td>
-     <td>",$nachweis[$i][blattnummer],"</td>
-     <td><small>",$nachweis[$i][flurid],"</td>
+     <td><b>",$nachweis[$i]["stammnr"],"</b></td>
+     <td>",$nachweis[$i]["blattnummer"],"</td>
+     <td><small>",$nachweis[$i]["flurid"],"</td>
      <td><small>",$art,"</td>
-     <td>",$nachweis[$i][format],"</td>
-     <td>",$nachweis[$i][name],"</td>
-     <td>",$nachweis[$i][datum],"</td>
-     <td align=right>",$nachweis[$i][nachweis_id],"</td>
-<td><a href=",$dname," Target=\"about_blank\"><img src=\"images/buttons/dok.png\" width=20 border=0></a></td>
+     <td>",$nachweis[$i]["format"],"</td>
+     <td>",$nachweis[$i]["name"],"</td>
+     <td>",$nachweis[$i]["datum"],"</td>
+     <td align=right>",$nachweis[$i]["nachweis_id"],"</td>
+<td><a href=",$db_link," Target=\"about_blank\"><img src=\"images/buttons/dok.png\" width=20 border=0></a></td>
      </tr>
      </table>";
      }
@@ -131,8 +131,8 @@ if ($logcount == 0)
      for ($j=1;$j<=$logcount;$j++)
        {
          echo "<tr>
-               <td>",substr($logs[$j][aktualisiert],0,19),"</td>
-               <td>",$logs[$j][aktion],"</td>
+               <td>",substr($logs[$j]["aktualisiert"],0,19),"</td>
+               <td>",$logs[$j]["aktion"],"</td>
                </tr><tr><td colspan=2><hr></td></tr>";
        }
      echo "</table>";
@@ -163,8 +163,8 @@ if ($logcount == 0)
      for ($j=1;$j<=$logcount;$j++)
        {
          echo "<tr>
-               <td>",substr($logs[$j][aktualisiert],0,19),"</td>
-               <td>",$logs[$j][aktion],"</td>
+               <td>",substr($logs[$j]["aktualisiert"],0,19),"</td>
+               <td>",$logs[$j]["aktion"],"</td>
                </tr>";
        }
      echo "</table>";

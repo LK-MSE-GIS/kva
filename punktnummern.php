@@ -44,7 +44,7 @@ $download_dir = "/data/upload/";
 $file_types = array();
 
 
-// Eingang über das Formular
+// Eingang Ã¼ber das Formular
 if ( !isset( $_FILES['upload'] ) && $_POST['submit'] !== "Submit") {
    
    $ret = display_formular( $max_file_size );
@@ -54,8 +54,8 @@ if ( !isset( $_FILES['upload'] ) && $_POST['submit'] !== "Submit") {
 else {
    // Array mit Angaben ueber die Datei
    $file_name = $_FILES['upload'];
-   echo $file_name[name];
-   $kmq="4558".substr($file_name[name],0,4);
+   echo $file_name["name"];
+   $kmq="4558".substr($file_name["name"],0,4);
    
    // Dateigroesse der hochgeladenen Datei
    $file_size = $file_name['size'];
